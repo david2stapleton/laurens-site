@@ -1,0 +1,35 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/images"
+public_folder: "/images"
+
+collections:
+  - name: "pages"
+    label: "Site Sections"
+    files:
+      - name: "hero"
+        label: "Hero / Homepage"
+        file: "src/_content/hero.md"
+        fields:
+          - { label: "Name", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Location", name: "location", widget: "string" }
+
+      - name: "about"
+        label: "About"
+        file: "src/_content/about.md"
+        fields:
+          - { label: "Heading", name: "title", widget: "string", default: "About" }
+          - { label: "Headshot", name: "headshot", widget: "image", required: false }
+          - { label: "Bio", name: "body", widget: "markdown" }
+          - { label: "Resume (PDF)", name: "resume", widget: "file", required: false }
+
+      - name: "contact"
+        label: "Contact"
+        file: "src/_content/contact.md"
+        fields:
+          - { label: "Heading", name: "title", widget: "string", default: "Contact" }
+          - { label: "Intro Text", name: "intro", widget: "text" }
+          - { label: "Email Address", name: "email", widget: "string" }
