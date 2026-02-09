@@ -3,12 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ site.hero.title }} | Soprano & Voice Teacher</title>
-  <meta name="description" content="{{ site.hero.title }} — soprano, voice teacher, and performer based in {{ site.hero.location }}. Classical, pop, and jazz voice lessons for all ages.">
+  <title>{{ site.design.site_name }} | {{ site.design.site_tagline }}</title>
+  <meta name="description" content="{{ site.design.site_name }} — {{ site.design.site_tagline }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Droid+Serif:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="{{ site.fonts.url | safe }}" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
+  <style>
+    :root {
+      --bg: {{ site.design.background_color | default("#f2f2f2") }};
+      --text: {{ site.design.text_color | default("#2e2e2e") }};
+      --accent: {{ site.design.accent_color | default("#ffaa81") }};
+      --heading-font: {{ site.fonts.heading | safe }};
+      --body-font: {{ site.fonts.body | safe }};
+      --section-padding: {{ site.design.section_padding | default(80) }}px;
+      --content-gap: {{ site.design.content_gap | default(48) }}px;
+      --container-width: {{ site.design.container_width | default(1100) }}px;
+    }
+  </style>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
@@ -16,7 +28,7 @@
   <!-- Navigation -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#hero" class="nav-logo">{{ site.hero.title }}</a>
+      <a href="#about" class="nav-logo">{{ site.design.site_name }}</a>
       <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
         <span></span>
         <span></span>
@@ -35,11 +47,20 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
-        <p>&copy; 2026 {{ site.hero.title }}. All rights reserved.</p>
+        <p>&copy; 2026 {{ site.design.site_name }}. All rights reserved.</p>
         <div class="social-links">
-          <a href="#" aria-label="Facebook">FB</a>
-          <a href="#" aria-label="Instagram">IG</a>
-          <a href="#" aria-label="YouTube">YT</a>
+          {% if site.design.social_facebook %}
+            <a href="{{ site.design.social_facebook }}" aria-label="Facebook" target="_blank" rel="noopener">FB</a>
+          {% endif %}
+          {% if site.design.social_instagram %}
+            <a href="{{ site.design.social_instagram }}" aria-label="Instagram" target="_blank" rel="noopener">IG</a>
+          {% endif %}
+          {% if site.design.social_youtube %}
+            <a href="{{ site.design.social_youtube }}" aria-label="YouTube" target="_blank" rel="noopener">YT</a>
+          {% endif %}
+          {% if site.design.social_tiktok %}
+            <a href="{{ site.design.social_tiktok }}" aria-label="TikTok" target="_blank" rel="noopener">TT</a>
+          {% endif %}
         </div>
       </div>
     </div>

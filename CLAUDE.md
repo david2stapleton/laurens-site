@@ -9,9 +9,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Architecture
 
-Single-page Eleventy (v3) site with tabbed navigation (About, Contact). Uses Decap CMS (git-gateway backend) so the site owner can edit content through a web admin panel.
+Single-page Eleventy (v3) site with tabbed navigation (About, Contact). Uses Decap CMS (GitHub OAuth backend) so the site owner can edit content through a web admin panel.
 
-**Data flow:** Markdown files in `src/_content/` (hero.md, about.md, contact.md) are parsed by `src/_data/site.js` using gray-matter. This exposes front matter + body as `site.hero`, `site.about`, `site.contact` in templates. Content files are NOT rendered as pages — they're data sources only (excluded via `.eleventy.js` ignores).
+**Data flow:** Markdown files in `src/_content/` (design.md, about.md, contact.md) are parsed by `src/_data/site.js` using gray-matter. This exposes front matter + body as `site.design`, `site.about`, `site.contact` in templates. The `design` config also resolves `site.fonts` (heading, body, url) from a `FONT_PAIRINGS` lookup table keyed by `font_pairing`. Content files are NOT rendered as pages — they're data sources only (excluded via `.eleventy.js` ignores).
+
+**Design tokens:** `src/_content/design.md` holds CMS-editable design config: colors (`accent_color`, `background_color`, `text_color`), font pairing, spacing (`section_padding`, `content_gap`, `container_width`), site identity (`site_name`, `site_tagline`), hero background settings, and social links. These are injected as CSS custom properties via an inline `<style>` block in `base.njk`.
 
 **Template structure:** `src/index.njk` is the single page, wrapped by `src/_includes/base.njk` (layout with nav, footer, fonts, meta). Markdown body content is rendered via a custom `markdown` Nunjucks filter defined in `.eleventy.js`.
 

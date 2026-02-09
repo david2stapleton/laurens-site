@@ -10,13 +10,34 @@ collections:
   - name: "pages"
     label: "Site Sections"
     files:
-      - name: "hero"
-        label: "Hero / Homepage"
-        file: "src/_content/hero.md"
+      - name: "design"
+        label: "Design Config"
+        file: "src/_content/design.md"
         fields:
-          - { label: "Name", name: "title", widget: "string" }
-          - { label: "Subtitle", name: "subtitle", widget: "string" }
-          - { label: "Location", name: "location", widget: "string" }
+          - { label: "Site Name", name: "site_name", widget: "string" }
+          - { label: "Site Tagline", name: "site_tagline", widget: "string" }
+          - { label: "Accent Color", name: "accent_color", widget: "color", default: "#ffaa81" }
+          - { label: "Background Color", name: "background_color", widget: "color", default: "#f2f2f2" }
+          - { label: "Text Color", name: "text_color", widget: "color", default: "#2e2e2e" }
+          - label: "Font Pairing"
+            name: "font_pairing"
+            widget: "select"
+            options:
+              - { label: "Droid Serif + Open Sans (Classic)", value: "droid-opensans" }
+              - { label: "Playfair Display + Lato (Elegant)", value: "playfair-lato" }
+              - { label: "Cormorant Garamond + Raleway (Refined)", value: "cormorant-raleway" }
+              - { label: "Libre Baskerville + Source Sans 3 (Editorial)", value: "baskerville-sourcesans" }
+              - { label: "DM Serif Display + DM Sans (Modern)", value: "dmserif-dmsans" }
+            default: "droid-opensans"
+          - { label: "Hero Background Image", name: "hero_bg_image", widget: "image", required: false }
+          - { label: "Hero Background Color", name: "hero_bg_color", widget: "color", default: "#2e2e2e" }
+          - { label: "Section Padding (px)", name: "section_padding", widget: "number", default: 80, min: 40, max: 160, step: 8 }
+          - { label: "Content Gap (px)", name: "content_gap", widget: "number", default: 48, min: 16, max: 96, step: 8 }
+          - { label: "Container Width (px)", name: "container_width", widget: "number", default: 1100, min: 800, max: 1400, step: 50 }
+          - { label: "Facebook URL", name: "social_facebook", widget: "string", required: false }
+          - { label: "Instagram URL", name: "social_instagram", widget: "string", required: false }
+          - { label: "YouTube URL", name: "social_youtube", widget: "string", required: false }
+          - { label: "TikTok URL", name: "social_tiktok", widget: "string", required: false }
 
       - name: "about"
         label: "About"

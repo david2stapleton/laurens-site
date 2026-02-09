@@ -2,16 +2,6 @@
 layout: base.njk
 ---
 
-<!-- Hero Section -->
-<section class="hero" id="hero">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <h1>{{ site.hero.title }}</h1>
-    <p class="hero-subtitle">{{ site.hero.subtitle }}</p>
-    <p class="hero-location">{{ site.hero.location }}</p>
-  </div>
-</section>
-
 <!-- About Section -->
 <section class="section about tab-panel active" id="about">
   <div class="container">
@@ -19,9 +9,9 @@ layout: base.njk
     <div class="about-grid">
       <div class="about-image">
         {% if site.about.headshot %}
-          <img src="{{ site.about.headshot }}" alt="Headshot of {{ site.hero.title }}">
+          <img src="{{ site.about.headshot }}" alt="Headshot of {{ site.design.site_name }}">
         {% else %}
-          <div class="placeholder-image" aria-label="Headshot of {{ site.hero.title }}">
+          <div class="placeholder-image" aria-label="Headshot of {{ site.design.site_name }}">
             <span>Photo</span>
           </div>
         {% endif %}
