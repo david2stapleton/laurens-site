@@ -1,7 +1,7 @@
 ---
-site_name: Lauren Sutherland
+site_name: Lauren Sutherlando
 site_tagline: Soprano
-accent_color: "#ffaa81"
+accent_color: "#768ee6"
 background_color: "#f2f2f2"
 text_color: "#2e2e2e"
 font_pairing: droid-opensans
