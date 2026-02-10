@@ -1,5 +1,5 @@
 ---
-site_name: Lauren Sutherland
+site_name: Lauren Sutherlando
 site_tagline: Soprano
 accent_color: "#ffaa81"
 background_color: "#f2f2f2"
