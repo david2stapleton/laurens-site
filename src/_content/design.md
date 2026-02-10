@@ -12,6 +12,6 @@ content_gap: 48
 container_width: 1100
 social_facebook: ""
 social_instagram: ""
-social_youtube: ""
+social_youtube: www.youtube.com/@laurensutherlandsoprano
 social_tiktok: ""
 ---
