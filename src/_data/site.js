@@ -35,7 +35,7 @@ module.exports = function () {
   const data = {};
 
   // Load single content files
-  const pages = ['design', 'about', 'contact'];
+  const pages = ['design', 'about', 'contact', 'checklist'];
   pages.forEach(name => {
     const filePath = path.join(contentDir, `${name}.md`);
     if (fs.existsSync(filePath)) {
