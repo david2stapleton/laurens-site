@@ -1,5 +1,5 @@
 ---
-title: About
+title: Aboute
 headshot: /images/sutherland_lauren_headshot_1.jpg
 resume: /images/sutherland_lauren_soprano_resume.pdf
 ---
