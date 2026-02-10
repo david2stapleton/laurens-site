@@ -14,4 +14,6 @@ tasks:
     done: false
   - task: Add social media URLs in CMS
     done: false
+  - done: false
+    task: make a better looking checklist
 ---
