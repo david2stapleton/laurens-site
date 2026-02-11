@@ -10,7 +10,7 @@ public_folder: "/images"
 
 collections:
   - name: "pages"
-    label: "Site Sections"
+    label: "Site Settings"
     files:
       - name: "design"
         label: "Design Config"
@@ -41,19 +41,75 @@ collections:
           - { label: "YouTube URL", name: "social_youtube", widget: "string", required: false }
           - { label: "TikTok URL", name: "social_tiktok", widget: "string", required: false }
 
-      - name: "about"
-        label: "About"
-        file: "src/_content/about.md"
+      - name: "sections"
+        label: "Page Sections"
+        file: "src/_content/sections.md"
         fields:
-          - { label: "Heading", name: "title", widget: "string", default: "About" }
-          - { label: "Headshot", name: "headshot", widget: "image", required: false }
-          - { label: "Bio", name: "body", widget: "markdown" }
-          - { label: "Resume (PDF)", name: "resume", widget: "file", required: false }
+          - label: "Content Blocks"
+            name: "blocks"
+            widget: "list"
+            types:
+              - label: "Text"
+                name: "text"
+                widget: "object"
+                fields:
+                  - { label: "Heading", name: "heading", widget: "string", required: false }
+                  - { label: "Body", name: "body", widget: "markdown" }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - label: "Image Position"
+                    name: "image_position"
+                    widget: "select"
+                    options: ["left", "right"]
+                    default: "left"
+                    required: false
 
-      - name: "contact"
-        label: "Contact"
-        file: "src/_content/contact.md"
-        fields:
-          - { label: "Heading", name: "title", widget: "string", default: "Contact" }
-          - { label: "Intro Text", name: "intro", widget: "text" }
-          - { label: "Email Address", name: "email", widget: "string" }
+              - label: "Photo"
+                name: "photo"
+                widget: "object"
+                fields:
+                  - { label: "Image", name: "image", widget: "image" }
+                  - { label: "Caption", name: "caption", widget: "string", required: false }
+                  - label: "Size"
+                    name: "size"
+                    widget: "select"
+                    options: ["small", "medium", "full"]
+                    default: "medium"
+
+              - label: "Photo Grid"
+                name: "photo_grid"
+                widget: "object"
+                fields:
+                  - { label: "Heading", name: "heading", widget: "string", required: false }
+                  - label: "Columns"
+                    name: "columns"
+                    widget: "number"
+                    default: 3
+                    min: 2
+                    max: 4
+                  - label: "Images"
+                    name: "images"
+                    widget: "list"
+                    fields:
+                      - { label: "Image", name: "image", widget: "image" }
+                      - { label: "Caption", name: "caption", widget: "string", required: false }
+
+              - label: "Links"
+                name: "links"
+                widget: "object"
+                fields:
+                  - { label: "Heading", name: "heading", widget: "string", required: false }
+                  - label: "Links"
+                    name: "links"
+                    widget: "list"
+                    fields:
+                      - { label: "Label", name: "label", widget: "string" }
+                      - { label: "URL", name: "url", widget: "string" }
+                      - { label: "Open in New Tab", name: "new_tab", widget: "boolean", default: false }
+
+              - label: "Contact"
+                name: "contact"
+                widget: "object"
+                fields:
+                  - { label: "Heading", name: "heading", widget: "string", default: "Contact" }
+                  - { label: "Intro Text", name: "intro", widget: "text" }
+                  - { label: "Email Address", name: "email", widget: "string" }

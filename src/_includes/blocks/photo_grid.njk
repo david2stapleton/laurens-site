@@ -1,0 +1,10 @@
+<div class="photo-grid photo-grid-{{ block.columns | default(3) }}">
+  {% for item in block.images %}
+    <figure class="photo-grid-item">
+      <img src="{{ item.image }}" alt="{{ item.caption | default('') }}">
+      {% if item.caption %}
+        <figcaption>{{ item.caption }}</figcaption>
+      {% endif %}
+    </figure>
+  {% endfor %}
+</div>

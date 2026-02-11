@@ -34,15 +34,21 @@ module.exports = function () {
   const contentDir = path.join(__dirname, '../_content');
   const data = {};
 
-  // Load single content files
-  const pages = ['design', 'about', 'contact'];
-  pages.forEach(name => {
-    const filePath = path.join(contentDir, `${name}.md`);
-    if (fs.existsSync(filePath)) {
-      const file = matter(fs.readFileSync(filePath, 'utf-8'));
-      data[name] = { ...file.data, body: file.content.trim() };
-    }
-  });
+  // Load design config
+  const designPath = path.join(contentDir, 'design.md');
+  if (fs.existsSync(designPath)) {
+    const file = matter(fs.readFileSync(designPath, 'utf-8'));
+    data.design = { ...file.data, body: file.content.trim() };
+  }
+
+  // Load sections (page builder blocks)
+  const sectionsPath = path.join(contentDir, 'sections.md');
+  if (fs.existsSync(sectionsPath)) {
+    const file = matter(fs.readFileSync(sectionsPath, 'utf-8'));
+    data.sections = file.data.blocks || [];
+  } else {
+    data.sections = [];
+  }
 
   // Resolve font pairing
   const pairingKey = data.design && data.design.font_pairing;

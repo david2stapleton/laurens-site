@@ -1,0 +1,14 @@
+{% if block.image %}
+<div class="text-with-image text-image-{{ block.image_position | default('left') }}">
+  <div class="text-image-figure">
+    <img src="{{ block.image }}" alt="">
+  </div>
+  <div class="text-image-body">
+    {{ block.body | markdown | safe }}
+  </div>
+</div>
+{% else %}
+<div class="text-body">
+  {{ block.body | markdown | safe }}
+</div>
+{% endif %}

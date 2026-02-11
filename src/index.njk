@@ -2,58 +2,23 @@
 layout: base.njk
 ---
 
-<!-- About Section -->
-<section class="section about tab-panel active" id="about">
+{% for block in site.sections %}
+<section class="section section-{{ block.type }}">
   <div class="container">
-    <h2>{{ site.about.title }}</h2>
-    <div class="about-grid">
-      <div class="about-image">
-        {% if site.about.headshot %}
-          <img src="{{ site.about.headshot }}" alt="Headshot of {{ site.design.site_name }}">
-        {% else %}
-          <div class="placeholder-image" aria-label="Headshot of {{ site.design.site_name }}">
-            <span>Photo</span>
-          </div>
-        {% endif %}
-      </div>
-      <div class="about-text">
-        {{ site.about.body | markdown | safe }}
-        {% if site.about.resume %}
-          <a href="{{ site.about.resume }}" class="btn btn-resume" target="_blank" rel="noopener">Download Resume</a>
-        {% else %}
-          <span class="btn btn-resume disabled">Resume Coming Soon</span>
-        {% endif %}
-      </div>
-    </div>
+    {% if block.heading %}
+      <h2>{{ block.heading }}</h2>
+    {% endif %}
+    {% if block.type == "text" %}
+      {% include "blocks/text.njk" %}
+    {% elif block.type == "photo" %}
+      {% include "blocks/photo.njk" %}
+    {% elif block.type == "photo_grid" %}
+      {% include "blocks/photo_grid.njk" %}
+    {% elif block.type == "links" %}
+      {% include "blocks/links.njk" %}
+    {% elif block.type == "contact" %}
+      {% include "blocks/contact.njk" %}
+    {% endif %}
   </div>
 </section>
-
-<!-- Contact Section -->
-<section class="section contact tab-panel" id="contact">
-  <div class="container">
-    <h2>{{ site.contact.title }}</h2>
-    <div class="contact-grid">
-      <div class="contact-info">
-        <p>{{ site.contact.intro }}</p>
-        <p class="contact-email">
-          <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a>
-        </p>
-      </div>
-      <form class="contact-form" id="contact-form">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
-        </div>
-        <button type="submit" class="btn">Send Message</button>
-      </form>
-    </div>
-  </div>
-</section>
+{% endfor %}

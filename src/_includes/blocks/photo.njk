@@ -1,0 +1,6 @@
+<figure class="photo-figure photo-{{ block.size | default('medium') }}">
+  <img src="{{ block.image }}" alt="{{ block.caption | default('') }}">
+  {% if block.caption %}
+    <figcaption>{{ block.caption }}</figcaption>
+  {% endif %}
+</figure>

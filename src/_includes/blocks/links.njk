@@ -1,0 +1,5 @@
+<div class="links-list">
+  {% for link in block.links %}
+    <a href="{{ link.url }}" class="btn"{% if link.new_tab %} target="_blank" rel="noopener"{% endif %}>{{ link.label }}</a>
+  {% endfor %}
+</div>
