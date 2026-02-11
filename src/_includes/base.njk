@@ -29,6 +29,16 @@
   <nav class="navbar" id="navbar">
     <div class="nav-container">
       <a href="/" class="nav-logo">{{ site.design.site_name }}</a>
+      {% if site.design.nav and site.design.nav.length %}
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          {% for item in site.design.nav %}
+            <li><a href="{{ item.slug }}"{% if page.url == item.slug %} class="active"{% endif %}>{{ item.label }}</a></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
     </div>
   </nav>
 

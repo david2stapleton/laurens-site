@@ -41,15 +41,6 @@ module.exports = function () {
     data.design = { ...file.data, body: file.content.trim() };
   }
 
-  // Load sections (page builder blocks)
-  const sectionsPath = path.join(contentDir, 'sections.md');
-  if (fs.existsSync(sectionsPath)) {
-    const file = matter(fs.readFileSync(sectionsPath, 'utf-8'));
-    data.sections = file.data.blocks || [];
-  } else {
-    data.sections = [];
-  }
-
   // Resolve font pairing
   const pairingKey = data.design && data.design.font_pairing;
   data.fonts = FONT_PAIRINGS[pairingKey] || FONT_PAIRINGS['droid-opensans'];

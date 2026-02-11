@@ -2,7 +2,7 @@
 layout: base.njk
 ---
 
-{% for block in site.sections %}
+{% for block in blocks %}
 <section class="section section-{{ block.type }}">
   <div class="container">
     {% if block.heading %}

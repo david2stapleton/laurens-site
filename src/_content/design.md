@@ -14,4 +14,9 @@ social_facebook: ""
 social_instagram: ""
 social_youtube: www.youtube.com/@laurensutherlandsoprano
 social_tiktok: ""
+nav:
+  - label: About
+    slug: /
+  - label: Contact
+    slug: /contact/
 ---

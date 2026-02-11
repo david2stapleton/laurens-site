@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: david2stapleton/laurens-site
-  branch: main
+  branch: page-builder
 
 publish_mode: editorial_workflow
 
@@ -9,7 +9,7 @@ media_folder: "src/images"
 public_folder: "/images"
 
 collections:
-  - name: "pages"
+  - name: "settings"
     label: "Site Settings"
     files:
       - name: "design"
@@ -40,76 +40,87 @@ collections:
           - { label: "Instagram URL", name: "social_instagram", widget: "string", required: false }
           - { label: "YouTube URL", name: "social_youtube", widget: "string", required: false }
           - { label: "TikTok URL", name: "social_tiktok", widget: "string", required: false }
-
-      - name: "sections"
-        label: "Page Sections"
-        file: "src/_content/sections.md"
-        fields:
-          - label: "Content Blocks"
-            name: "blocks"
+          - label: "Navigation"
+            name: "nav"
             widget: "list"
-            types:
-              - label: "Text"
-                name: "text"
-                widget: "object"
-                fields:
-                  - { label: "Heading", name: "heading", widget: "string", required: false }
-                  - { label: "Body", name: "body", widget: "markdown" }
-                  - { label: "Image", name: "image", widget: "image", required: false }
-                  - label: "Image Position"
-                    name: "image_position"
-                    widget: "select"
-                    options: ["left", "right"]
-                    default: "left"
-                    required: false
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "slug", widget: "string" }
 
-              - label: "Photo"
-                name: "photo"
-                widget: "object"
+  - name: "pages"
+    label: "Pages"
+    folder: "src/pages"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "page.njk" }
+      - { label: "Permalink", name: "permalink", widget: "string" }
+      - label: "Content Blocks"
+        name: "blocks"
+        widget: "list"
+        types:
+          - label: "Text"
+            name: "text"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string", required: false }
+              - { label: "Body", name: "body", widget: "markdown" }
+              - { label: "Image", name: "image", widget: "image", required: false }
+              - label: "Image Position"
+                name: "image_position"
+                widget: "select"
+                options: ["left", "right"]
+                default: "left"
+                required: false
+
+          - label: "Photo"
+            name: "photo"
+            widget: "object"
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Caption", name: "caption", widget: "string", required: false }
+              - label: "Size"
+                name: "size"
+                widget: "select"
+                options: ["small", "medium", "full"]
+                default: "medium"
+
+          - label: "Photo Grid"
+            name: "photo_grid"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string", required: false }
+              - label: "Columns"
+                name: "columns"
+                widget: "number"
+                default: 3
+                min: 2
+                max: 4
+              - label: "Images"
+                name: "images"
+                widget: "list"
                 fields:
                   - { label: "Image", name: "image", widget: "image" }
                   - { label: "Caption", name: "caption", widget: "string", required: false }
-                  - label: "Size"
-                    name: "size"
-                    widget: "select"
-                    options: ["small", "medium", "full"]
-                    default: "medium"
 
-              - label: "Photo Grid"
-                name: "photo_grid"
-                widget: "object"
-                fields:
-                  - { label: "Heading", name: "heading", widget: "string", required: false }
-                  - label: "Columns"
-                    name: "columns"
-                    widget: "number"
-                    default: 3
-                    min: 2
-                    max: 4
-                  - label: "Images"
-                    name: "images"
-                    widget: "list"
-                    fields:
-                      - { label: "Image", name: "image", widget: "image" }
-                      - { label: "Caption", name: "caption", widget: "string", required: false }
-
+          - label: "Links"
+            name: "links"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string", required: false }
               - label: "Links"
                 name: "links"
-                widget: "object"
+                widget: "list"
                 fields:
-                  - { label: "Heading", name: "heading", widget: "string", required: false }
-                  - label: "Links"
-                    name: "links"
-                    widget: "list"
-                    fields:
-                      - { label: "Label", name: "label", widget: "string" }
-                      - { label: "URL", name: "url", widget: "string" }
-                      - { label: "Open in New Tab", name: "new_tab", widget: "boolean", default: false }
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+                  - { label: "Open in New Tab", name: "new_tab", widget: "boolean", default: false }
 
-              - label: "Contact"
-                name: "contact"
-                widget: "object"
-                fields:
-                  - { label: "Heading", name: "heading", widget: "string", default: "Contact" }
-                  - { label: "Intro Text", name: "intro", widget: "text" }
-                  - { label: "Email Address", name: "email", widget: "string" }
+          - label: "Contact"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string", default: "Contact" }
+              - { label: "Intro Text", name: "intro", widget: "text" }
+              - { label: "Email Address", name: "email", widget: "string" }
