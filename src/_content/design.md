@@ -17,8 +17,8 @@ social_tiktok: ""
 nav:
   - label: About
     slug: /
-  - label: Contact
-    slug: /contact/
   - label: Photo
     slug: /photo/
+  - label: Contact
+    slug: /contact/
 ---
