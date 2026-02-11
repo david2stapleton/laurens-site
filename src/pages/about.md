@@ -4,7 +4,7 @@ layout: page.njk
 permalink: /
 blocks:
   - type: text
-    heading: About
+    heading: ""
     body: >-
       Coloratura soprano Lauren Sutherland wins over audiences with her
       energetic stage presence and her glittering high notes. She is
