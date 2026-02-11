@@ -19,4 +19,6 @@ nav:
     slug: /
   - label: Contact
     slug: /contact/
+  - label: Photo
+    slug: /photo/
 ---
