@@ -1,7 +1,7 @@
 ---
 title: Photo
 layout: page.njk
-permalink: /photo
+permalink: /photo/
 blocks:
   - type: photo_grid
     columns: 3
