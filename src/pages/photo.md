@@ -11,4 +11,5 @@ blocks:
       - image: /images/sutherland_lauren_headshot_1.jpg
       - image: /images/sutherland_lauren_headshot_1.jpg
       - image: /images/sutherland_lauren_headshot_1.jpg
+    heading: My Headshots
 ---
