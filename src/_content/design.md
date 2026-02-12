@@ -21,4 +21,6 @@ nav:
     slug: /photo/
   - label: Contact
     slug: /contact/
+  - label: Lessons
+    slug: /lessons/
 ---
