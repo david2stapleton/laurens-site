@@ -73,6 +73,15 @@ collections:
                 options: ["left", "right"]
                 default: "left"
                 required: false
+              - label: "Mobile Image"
+                name: "mobile_image"
+                widget: "select"
+                options:
+                  - { label: "Show (beside text)", value: "show" }
+                  - { label: "Inline (above text)", value: "inline" }
+                  - { label: "Hide", value: "hide" }
+                default: "inline"
+                required: false
 
           - label: "Photo"
             name: "photo"

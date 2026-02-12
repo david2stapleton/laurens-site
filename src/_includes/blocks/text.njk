@@ -1,5 +1,5 @@
 {% if block.image %}
-<div class="text-with-image text-image-{{ block.image_position | default('left') }}">
+<div class="text-with-image text-image-{{ block.image_position | default('left') }} mobile-image-{{ block.mobile_image | default('inline') }}">
   <div class="text-image-figure">
     <img src="{{ block.image }}" alt="">
   </div>
