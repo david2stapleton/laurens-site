@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: david2stapleton/laurens-site
-  branch: page-builder
+  branch: main
 
 publish_mode: editorial_workflow
 
