@@ -1,5 +1,5 @@
 ---
 title: Lessons
 layout: page.njk
-permalink: lesson/
+permalink: /lessons/
 ---
