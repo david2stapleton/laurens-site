@@ -1,5 +1,5 @@
 ---
-title: Video
+title: Videos
 layout: page.njk
 permalink: /videos/
 blocks:
