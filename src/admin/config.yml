@@ -141,7 +141,7 @@ collections:
                 widget: "list"
                 fields:
                   - { label: "YouTube URL", name: "url", widget: "string" }
-                  - { label: "Title", name: "title", widget: "string", required: false }
+                  - { label: "Title", name: "title", widget: "text", required: false }
 
           - label: "Contact"
             name: "contact"

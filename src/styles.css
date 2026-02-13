@@ -257,6 +257,10 @@ img {
   color: #888;
 }
 
+.section-youtube_grid .photo-grid-item img {
+  aspect-ratio: 16 / 9;
+}
+
 .youtube-thumb {
   position: relative;
   display: block;
