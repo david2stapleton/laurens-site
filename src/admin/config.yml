@@ -125,6 +125,24 @@ collections:
                   - { label: "URL", name: "url", widget: "string" }
                   - { label: "Open in New Tab", name: "new_tab", widget: "boolean", default: false }
 
+          - label: "YouTube Grid"
+            name: "youtube_grid"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string", required: false }
+              - label: "Columns"
+                name: "columns"
+                widget: "number"
+                default: 3
+                min: 2
+                max: 4
+              - label: "Videos"
+                name: "videos"
+                widget: "list"
+                fields:
+                  - { label: "YouTube URL", name: "url", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string", required: false }
+
           - label: "Contact"
             name: "contact"
             widget: "object"

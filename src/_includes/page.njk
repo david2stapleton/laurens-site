@@ -16,6 +16,8 @@ layout: base.njk
       {% include "blocks/photo_grid.njk" %}
     {% elif block.type == "links" %}
       {% include "blocks/links.njk" %}
+    {% elif block.type == "youtube_grid" %}
+      {% include "blocks/youtube_grid.njk" %}
     {% elif block.type == "contact" %}
       {% include "blocks/contact.njk" %}
     {% endif %}

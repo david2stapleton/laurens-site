@@ -257,6 +257,37 @@ img {
   color: #888;
 }
 
+.youtube-thumb {
+  position: relative;
+  display: block;
+}
+
+.youtube-thumb .youtube-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 44px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+}
+
+.youtube-thumb .youtube-play::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  border-style: solid;
+  border-width: 10px 0 10px 18px;
+  border-color: transparent transparent transparent #fff;
+}
+
+.youtube-thumb:hover .youtube-play {
+  background: #e00;
+}
+
 /* ========================================
    Links Block
    ======================================== */

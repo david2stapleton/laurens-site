@@ -1,0 +1,14 @@
+<div class="photo-grid photo-grid-{{ block.columns | default(3) }}">
+  {% for item in block.videos %}
+    {% set video_id = item.url | replace("https://www.youtube.com/watch?v=", "") | replace("https://youtu.be/", "") | replace("https://youtube.com/watch?v=", "") %}
+    <figure class="photo-grid-item">
+      <a href="{{ item.url }}" target="_blank" rel="noopener" class="youtube-thumb">
+        <img src="https://img.youtube.com/vi/{{ video_id }}/hqdefault.jpg" alt="{{ item.title | default('') }}">
+        <span class="youtube-play" aria-hidden="true"></span>
+      </a>
+      {% if item.title %}
+        <figcaption>{{ item.title }}</figcaption>
+      {% endif %}
+    </figure>
+  {% endfor %}
+</div>
