@@ -23,4 +23,6 @@ nav:
     slug: /contact/
   - label: Lessons
     slug: /lessons/
+  - label: Videos
+    slug: /videos/
 ---
