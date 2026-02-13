@@ -3,7 +3,7 @@
     <figure class="photo-grid-item">
       <img src="{{ item.image }}" alt="{{ item.caption | default('') }}">
       {% if item.caption %}
-        <figcaption>{{ item.caption }}</figcaption>
+        <figcaption style="text-align: {{ site.design.caption_align | default('center') }}">{{ item.caption | markdown | safe }}</figcaption>
       {% endif %}
     </figure>
   {% endfor %}

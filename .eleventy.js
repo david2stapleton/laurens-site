@@ -9,6 +9,13 @@ module.exports = function (eleventyConfig) {
     return md.render(value);
   });
 
+  // Ensure URLs have a protocol
+  eleventyConfig.addFilter('ensureUrl', value => {
+    if (!value) return '';
+    if (value.startsWith('http://') || value.startsWith('https://')) return value;
+    return 'https://' + value;
+  });
+
   // Don't process content files as pages (they're data sources only)
   eleventyConfig.ignores.add('src/_content/**');
 

@@ -15,14 +15,15 @@ collections:
         label: "Design Config"
         file: "src/_content/design.md"
         fields:
-          - { label: "Site Name", name: "site_name", widget: "string" }
-          - { label: "Site Tagline", name: "site_tagline", widget: "string" }
-          - { label: "Accent Color", name: "accent_color", widget: "color", default: "#ffaa81" }
-          - { label: "Background Color", name: "background_color", widget: "color", default: "#f2f2f2" }
-          - { label: "Text Color", name: "text_color", widget: "color", default: "#2e2e2e" }
+          - { label: "Site Name", name: "site_name", widget: "string", hint: "Displayed in the navbar and browser tab" }
+          - { label: "Site Tagline", name: "site_tagline", widget: "string", hint: "Shown in the browser tab after the site name" }
+          - { label: "Accent Color", name: "accent_color", widget: "color", default: "#ffaa81", hint: "Used for buttons, links, and highlights" }
+          - { label: "Background Color", name: "background_color", widget: "color", default: "#f2f2f2", hint: "Main page background color" }
+          - { label: "Text Color", name: "text_color", widget: "color", default: "#2e2e2e", hint: "Default color for body text and headings" }
           - label: "Font Pairing"
             name: "font_pairing"
             widget: "select"
+            hint: "Sets the heading and body fonts across the entire site"
             options:
               - { label: "Droid Serif + Open Sans (Classic)", value: "droid-opensans" }
               - { label: "Playfair Display + Lato (Elegant)", value: "playfair-lato" }
@@ -30,21 +31,31 @@ collections:
               - { label: "Libre Baskerville + Source Sans 3 (Editorial)", value: "baskerville-sourcesans" }
               - { label: "DM Serif Display + DM Sans (Modern)", value: "dmserif-dmsans" }
             default: "droid-opensans"
-          - { label: "Hero Background Image", name: "hero_bg_image", widget: "image", required: false }
-          - { label: "Hero Background Color", name: "hero_bg_color", widget: "color", default: "#2e2e2e" }
-          - { label: "Section Padding (px)", name: "section_padding", widget: "number", default: 80, min: 40, max: 160, step: 8 }
-          - { label: "Content Gap (px)", name: "content_gap", widget: "number", default: 48, min: 16, max: 96, step: 8 }
-          - { label: "Container Width (px)", name: "container_width", widget: "number", default: 1100, min: 800, max: 1400, step: 50 }
-          - { label: "Facebook URL", name: "social_facebook", widget: "string", required: false }
-          - { label: "Instagram URL", name: "social_instagram", widget: "string", required: false }
-          - { label: "YouTube URL", name: "social_youtube", widget: "string", required: false }
-          - { label: "TikTok URL", name: "social_tiktok", widget: "string", required: false }
+          - { label: "Hero Background Image", name: "hero_bg_image", widget: "image", required: false, hint: "Background image for the top hero section on the homepage" }
+          - { label: "Hero Background Color", name: "hero_bg_color", widget: "color", default: "#2e2e2e", hint: "Fallback color if no hero image is set" }
+          - { label: "Section Padding (px)", name: "section_padding", widget: "number", default: 80, min: 40, max: 160, step: 8, hint: "Vertical spacing above and below each content section" }
+          - { label: "Content Gap (px)", name: "content_gap", widget: "number", default: 48, min: 16, max: 96, step: 8, hint: "Spacing between elements within a section" }
+          - { label: "Container Width (px)", name: "container_width", widget: "number", default: 1100, min: 800, max: 1400, step: 50, hint: "Maximum width of the content area on large screens" }
+          - label: "Caption Alignment"
+            name: "caption_align"
+            widget: "select"
+            hint: "Text alignment for photo and video captions across the site"
+            options:
+              - { label: "Left", value: "left" }
+              - { label: "Center", value: "center" }
+              - { label: "Right", value: "right" }
+            default: "center"
+          - { label: "Facebook URL", name: "social_facebook", widget: "string", required: false, hint: "Full URL to your Facebook page" }
+          - { label: "Instagram URL", name: "social_instagram", widget: "string", required: false, hint: "Full URL to your Instagram profile" }
+          - { label: "YouTube URL", name: "social_youtube", widget: "string", required: false, hint: "Full URL to your YouTube channel" }
+          - { label: "TikTok URL", name: "social_tiktok", widget: "string", required: false, hint: "Full URL to your TikTok profile" }
           - label: "Navigation"
             name: "nav"
             widget: "list"
+            hint: "Pages shown in the top navigation bar"
             fields:
-              - { label: "Label", name: "label", widget: "string" }
-              - { label: "URL", name: "slug", widget: "string" }
+              - { label: "Label", name: "label", widget: "string", hint: "Text displayed in the nav link" }
+              - { label: "URL", name: "slug", widget: "string", hint: "Page path, e.g. / for home or /contact/" }
 
   - name: "pages"
     label: "Pages"
@@ -87,7 +98,7 @@ collections:
             widget: "object"
             fields:
               - { label: "Image", name: "image", widget: "image" }
-              - { label: "Caption", name: "caption", widget: "string", required: false }
+              - { label: "Caption", name: "caption", widget: "markdown", required: false }
               - label: "Size"
                 name: "size"
                 widget: "select"
@@ -110,7 +121,7 @@ collections:
                 widget: "list"
                 fields:
                   - { label: "Image", name: "image", widget: "image" }
-                  - { label: "Caption", name: "caption", widget: "string", required: false }
+                  - { label: "Caption", name: "caption", widget: "markdown", required: false }
 
           - label: "Links"
             name: "links"
@@ -141,7 +152,7 @@ collections:
                 widget: "list"
                 fields:
                   - { label: "YouTube URL", name: "url", widget: "string" }
-                  - { label: "Title", name: "title", widget: "text", required: false }
+                  - { label: "Caption", name: "title", widget: "markdown", required: false }
 
           - label: "Contact"
             name: "contact"
@@ -149,4 +160,3 @@ collections:
             fields:
               - { label: "Heading", name: "heading", widget: "string", default: "Contact" }
               - { label: "Intro Text", name: "intro", widget: "text" }
-              - { label: "Email Address", name: "email", widget: "string" }
