@@ -7,7 +7,7 @@
         <span class="youtube-play" aria-hidden="true"></span>
       </a>
       {% if item.title %}
-        <figcaption>{{ item.title }}</figcaption>
+        <figcaption>{{ item.title | replace("\n", "<br>") | safe }}</figcaption>
       {% endif %}
     </figure>
   {% endfor %}
