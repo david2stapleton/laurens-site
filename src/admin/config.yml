@@ -4,8 +4,6 @@ backend:
   branch: main
   base_url: https://sveltia-cms-auth.david2stapleton.workers.dev
 
-publish_mode: editorial_workflow
-
 media_folder: "src/images"
 public_folder: "/images"
 
