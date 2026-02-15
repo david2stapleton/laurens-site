@@ -17,12 +17,12 @@ social_tiktok: ''
 nav:
   - label: About
     slug: /
-  - label: Photo
-    slug: /photo/
-  - label: Contact
-    slug: /contact/
   - label: Lessons
     slug: /lessons/
+  - label: Photo
+    slug: /photo/
   - label: Videos
     slug: /videos/
+  - label: Contact
+    slug: /contact/
 ---
