@@ -1,7 +1,7 @@
 ---
 title: About
 layout: page.njk
-permalink: /About/
+permalink: /about/
 blocks:
   - type: text
     heading: ''
