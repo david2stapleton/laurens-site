@@ -11,7 +11,7 @@ blocks:
         alt: ''
       - image: /images/IMG_4436.JPG
         alt: ''
-    height: 400
+    height: 800
   - type: text
     heading: ''
     body: |-
