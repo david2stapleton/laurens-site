@@ -11,6 +11,8 @@ blocks:
         alt: ''
       - image: /images/pointing.jpg
         alt: ''
+      - image: /images/IMG_4393.jpeg
+        alt: ''
     height: 800
   - type: text
     heading: ''
