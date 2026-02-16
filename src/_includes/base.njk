@@ -27,14 +27,26 @@
   <!-- Navigation -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
+      {% if site.design.nav and site.design.nav.length %}
+        {% set mid = (site.design.nav.length / 2) | round(0, "ceil") %}
+        <ul class="nav-links nav-left" id="nav-links-left">
+          {% for item in site.design.nav %}
+            {% if loop.index0 < mid %}
+              <li><a href="{{ item.slug }}"{% if page.url == item.slug %} class="active"{% endif %}>{{ item.label }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      {% endif %}
       <a href="/" class="nav-logo">{{ site.design.site_name }}</a>
       {% if site.design.nav and site.design.nav.length %}
         <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
           <span></span><span></span><span></span>
         </button>
-        <ul class="nav-links" id="nav-links">
+        <ul class="nav-links nav-right" id="nav-links-right">
           {% for item in site.design.nav %}
-            <li><a href="{{ item.slug }}"{% if page.url == item.slug %} class="active"{% endif %}>{{ item.label }}</a></li>
+            {% if loop.index0 >= mid %}
+              <li><a href="{{ item.slug }}"{% if page.url == item.slug %} class="active"{% endif %}>{{ item.label }}</a></li>
+            {% endif %}
           {% endfor %}
         </ul>
       {% endif %}

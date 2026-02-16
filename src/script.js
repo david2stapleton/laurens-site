@@ -1,10 +1,16 @@
 // Mobile nav toggle
 const navToggle = document.getElementById('nav-toggle');
-const navLinks = document.getElementById('nav-links');
+const navLeft = document.getElementById('nav-links-left');
+const navRight = document.getElementById('nav-links-right');
 
-if (navToggle && navLinks) {
+if (navToggle && navRight) {
+  // On mobile, move left nav items into the right list so they all show in the hamburger
+  if (navLeft && window.innerWidth <= 768) {
+    const items = Array.from(navLeft.children);
+    items.forEach(item => navRight.insertBefore(item, navRight.firstChild));
+  }
   navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
+    navRight.classList.toggle('open');
   });
 }
 
