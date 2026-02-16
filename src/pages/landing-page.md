@@ -7,6 +7,7 @@ blocks:
     images:
       - image: /images/31166895637_e9175ef125_o-transformed.jpeg
         alt: ''
+        focus: right
       - image: /images/Facetune_15-10-2023-23-40-03.jpg
         alt: ''
       - image: /images/pointing.jpg
