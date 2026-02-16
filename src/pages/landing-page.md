@@ -5,11 +5,11 @@ permalink: /
 blocks:
   - type: hero_gallery
     images:
-      - image: /images/pointing.jpg
+      - image: /images/31166895637_e9175ef125_o-transformed.jpeg
         alt: ''
       - image: /images/Facetune_15-10-2023-23-40-03.jpg
         alt: ''
-      - image: /images/31166895637_e9175ef125_o-transformed.jpeg
+      - image: /images/pointing.jpg
         alt: ''
     height: 800
   - type: text
