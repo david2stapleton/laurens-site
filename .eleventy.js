@@ -9,6 +9,21 @@ module.exports = function (eleventyConfig) {
     return md.render(value);
   });
 
+  // Extract YouTube video ID from various URL formats
+  eleventyConfig.addFilter('youtubeId', value => {
+    if (!value) return '';
+    const patterns = [
+      /youtu\.be\/([^?&#]+)/,
+      /youtube\.com\/watch\?v=([^&#]+)/,
+      /youtube\.com\/embed\/([^?&#]+)/
+    ];
+    for (const pattern of patterns) {
+      const match = value.match(pattern);
+      if (match) return match[1];
+    }
+    return value;
+  });
+
   // Ensure URLs have a protocol
   eleventyConfig.addFilter('ensureUrl', value => {
     if (!value) return '';
