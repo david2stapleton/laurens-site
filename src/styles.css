@@ -421,6 +421,92 @@ img {
 }
 
 /* ========================================
+   Reviews Carousel
+   ======================================== */
+.reviews-carousel {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.reviews-track {
+  position: relative;
+  min-height: 120px;
+}
+
+.review-slide {
+  display: none;
+  margin: 0;
+  padding: 0;
+}
+
+.review-slide.active {
+  display: block;
+}
+
+.review-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  font-style: italic;
+}
+
+.review-text p {
+  margin: 0;
+}
+
+.review-author {
+  display: block;
+  margin-top: 16px;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.reviews-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.reviews-prev,
+.reviews-next {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--text);
+  cursor: pointer;
+  padding: 4px 12px;
+  line-height: 1;
+  opacity: 0.5;
+}
+
+.reviews-prev:hover,
+.reviews-next:hover {
+  opacity: 1;
+  color: var(--accent);
+}
+
+.reviews-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.reviews-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text);
+  opacity: 0.25;
+}
+
+.reviews-dot.active {
+  opacity: 0.7;
+  background: var(--accent);
+}
+
+/* ========================================
    Hero Gallery
    ======================================== */
 .section-hero-gallery {

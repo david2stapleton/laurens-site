@@ -81,6 +81,22 @@ collections:
                 fields:
                   - { label: "Image", name: "image", widget: "image" }
                   - { label: "Alt Text", name: "alt", widget: "string", required: false }
+                  - label: "Focal Point"
+                    name: "focus"
+                    widget: "select"
+                    hint: "Where to focus when the image is cropped"
+                    options:
+                      - { label: "Center", value: "center" }
+                      - { label: "Top", value: "top" }
+                      - { label: "Bottom", value: "bottom" }
+                      - { label: "Left", value: "left" }
+                      - { label: "Right", value: "right" }
+                      - { label: "Top Left", value: "top left" }
+                      - { label: "Top Right", value: "top right" }
+                      - { label: "Bottom Left", value: "bottom left" }
+                      - { label: "Bottom Right", value: "bottom right" }
+                    default: "center"
+                    required: false
               - label: "Height (px)"
                 name: "height"
                 widget: "number"
@@ -119,6 +135,22 @@ collections:
             fields:
               - { label: "Image", name: "image", widget: "image" }
               - { label: "Caption", name: "caption", widget: "markdown", required: false }
+              - label: "Focal Point"
+                name: "focus"
+                widget: "select"
+                hint: "Where to focus when the image is cropped"
+                options:
+                  - { label: "Center", value: "center" }
+                  - { label: "Top", value: "top" }
+                  - { label: "Bottom", value: "bottom" }
+                  - { label: "Left", value: "left" }
+                  - { label: "Right", value: "right" }
+                  - { label: "Top Left", value: "top left" }
+                  - { label: "Top Right", value: "top right" }
+                  - { label: "Bottom Left", value: "bottom left" }
+                  - { label: "Bottom Right", value: "bottom right" }
+                default: "center"
+                required: false
               - label: "Size"
                 name: "size"
                 widget: "select"
@@ -142,6 +174,22 @@ collections:
                 fields:
                   - { label: "Image", name: "image", widget: "image" }
                   - { label: "Caption", name: "caption", widget: "markdown", required: false }
+                  - label: "Focal Point"
+                    name: "focus"
+                    widget: "select"
+                    hint: "Where to focus when the image is cropped"
+                    options:
+                      - { label: "Center", value: "center" }
+                      - { label: "Top", value: "top" }
+                      - { label: "Bottom", value: "bottom" }
+                      - { label: "Left", value: "left" }
+                      - { label: "Right", value: "right" }
+                      - { label: "Top Left", value: "top left" }
+                      - { label: "Top Right", value: "top right" }
+                      - { label: "Bottom Left", value: "bottom left" }
+                      - { label: "Bottom Right", value: "bottom right" }
+                    default: "center"
+                    required: false
 
           - label: "Links"
             name: "links"
@@ -155,6 +203,20 @@ collections:
                   - { label: "Label", name: "label", widget: "string" }
                   - { label: "URL", name: "url", widget: "string" }
                   - { label: "Open in New Tab", name: "new_tab", widget: "boolean", default: false }
+
+          - label: "Reviews"
+            name: "reviews"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string", required: false }
+              - label: "Reviews"
+                name: "reviews"
+                widget: "list"
+                fields:
+                  - { label: "Quote", name: "quote", widget: "markdown" }
+                  - { label: "Author", name: "author", widget: "string", required: false, hint: "Name or source of the review" }
+              - { label: "Auto-Play", name: "autoplay", widget: "boolean", default: false, hint: "Automatically cycle through reviews" }
+              - { label: "Interval (seconds)", name: "interval", widget: "number", default: 5, min: 2, max: 15, hint: "Seconds between auto-play transitions" }
 
           - label: "YouTube Grid"
             name: "youtube_grid"

@@ -1,0 +1,23 @@
+<div class="reviews-carousel" data-autoplay="{{ block.autoplay | default(false) }}" data-interval="{{ block.interval | default(5) }}">
+  <div class="reviews-track">
+    {% for item in block.reviews %}
+      <blockquote class="review-slide{% if loop.first %} active{% endif %}">
+        <div class="review-text">{{ item.quote | markdown | safe }}</div>
+        {% if item.author %}
+          <cite class="review-author">— {{ item.author }}</cite>
+        {% endif %}
+      </blockquote>
+    {% endfor %}
+  </div>
+  {% if block.reviews.length > 1 %}
+    <div class="reviews-nav">
+      <button class="reviews-prev" aria-label="Previous review">&#8249;</button>
+      <div class="reviews-dots">
+        {% for item in block.reviews %}
+          <span class="reviews-dot{% if loop.first %} active{% endif %}"></span>
+        {% endfor %}
+      </div>
+      <button class="reviews-next" aria-label="Next review">&#8250;</button>
+    </div>
+  {% endif %}
+</div>

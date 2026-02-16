@@ -1,7 +1,7 @@
 <div class="photo-grid photo-grid-{{ block.columns | default(3) }}">
   {% for item in block.images %}
     <figure class="photo-grid-item">
-      <img src="{{ item.image }}" alt="{{ item.caption | default('') }}">
+      <img src="{{ item.image }}" alt="{{ item.caption | default('') }}" style="object-position: {{ item.focus | default('center') }}">
       {% if item.caption %}
         <figcaption style="text-align: {{ site.design.caption_align | default('center') }}">{{ item.caption | markdown | safe }}</figcaption>
       {% endif %}
