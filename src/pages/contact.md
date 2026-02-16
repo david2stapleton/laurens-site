@@ -5,8 +5,6 @@ permalink: /contact/
 blocks:
   - type: contact
     heading: Contact
-    intro: I'd love to hear from you. Whether you're interested in voice lessons,
-      have a question about an upcoming performance, or just want to say hello —
-      drop me a line.
+    intro: I'd love to hear from you! I am currently accepting inquiries for new in-person students in the Oak Park and Chicago area, and virtual lessons at your convenience.
     email: sutherland.lauren.m@gmail.com
 ---
