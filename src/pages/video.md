@@ -9,7 +9,9 @@ blocks:
     videos:
       - url: https://youtu.be/8amWe-dIBBA
         title: |-
-          "Inside Out"_ _from _A Gentleman's Guide to Love and Murder_ by Steven Lutvak
+          "Inside Out"
+
+          from _A Gentleman's Guide to Love and Murder_ by Steven Lutvak
 
           Recorded 2025
       - url: https://youtu.be/J_viHl7bSfs?si=Ui-Fu7Dpk8sPQxDP
