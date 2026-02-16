@@ -1,0 +1,7 @@
+<div class="hero-gallery hero-gallery-{{ block.images.length | default(3) }}" style="--hero-gallery-height: {{ block.height | default(site.design.hero_gallery_height) | default(400) }}px">
+  {% for item in block.images %}
+    <div class="hero-gallery-item">
+      <img src="{{ item.image }}" alt="{{ item.alt | default('') }}">
+    </div>
+  {% endfor %}
+</div>

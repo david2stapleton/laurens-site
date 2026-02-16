@@ -421,6 +421,33 @@ img {
 }
 
 /* ========================================
+   Hero Gallery
+   ======================================== */
+.section-hero-gallery {
+  padding: 0;
+}
+
+.hero-gallery {
+  display: grid;
+  width: 100%;
+}
+
+.hero-gallery-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.hero-gallery-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.hero-gallery-item img {
+  width: 100%;
+  height: var(--hero-gallery-height, 400px);
+  object-fit: cover;
+  display: block;
+}
+
+/* ========================================
    Responsive
    ======================================== */
 @media (max-width: 768px) {
@@ -497,6 +524,23 @@ img {
 
   .text-with-image.mobile-image-hide {
     grid-template-columns: 1fr;
+  }
+
+  /* Hero gallery — single random image on mobile */
+  .hero-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-gallery-item {
+    display: none;
+  }
+
+  .hero-gallery-item.mobile-visible {
+    display: block;
+  }
+
+  .hero-gallery-item img {
+    height: calc(var(--hero-gallery-height, 400px) * 0.6);
   }
 
   /* Photo grid */

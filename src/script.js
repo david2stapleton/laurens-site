@@ -1,3 +1,11 @@
+// Hero gallery — show one random image on mobile
+const heroGallery = document.querySelector('.hero-gallery');
+if (heroGallery && window.innerWidth <= 768) {
+  const items = heroGallery.querySelectorAll('.hero-gallery-item');
+  const random = Math.floor(Math.random() * items.length);
+  items[random].classList.add('mobile-visible');
+}
+
 // Mobile nav toggle
 const navToggle = document.getElementById('nav-toggle');
 const navLeft = document.getElementById('nav-links-left');

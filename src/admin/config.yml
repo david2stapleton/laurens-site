@@ -36,6 +36,7 @@ collections:
           - { label: "Section Padding (px)", name: "section_padding", widget: "number", default: 80, min: 40, max: 160, step: 8, hint: "Vertical spacing above and below each content section" }
           - { label: "Content Gap (px)", name: "content_gap", widget: "number", default: 48, min: 16, max: 96, step: 8, hint: "Spacing between elements within a section" }
           - { label: "Container Width (px)", name: "container_width", widget: "number", default: 1100, min: 800, max: 1400, step: 50, hint: "Maximum width of the content area on large screens" }
+          - { label: "Hero Gallery Height (px)", name: "hero_gallery_height", widget: "number", default: 400, min: 200, max: 800, step: 50, hint: "Default height of the hero gallery image strip" }
           - label: "Caption Alignment"
             name: "caption_align"
             widget: "select"
@@ -70,6 +71,25 @@ collections:
         name: "blocks"
         widget: "list"
         types:
+          - label: "Hero Gallery"
+            name: "hero_gallery"
+            widget: "object"
+            fields:
+              - label: "Images"
+                name: "images"
+                widget: "list"
+                fields:
+                  - { label: "Image", name: "image", widget: "image" }
+                  - { label: "Alt Text", name: "alt", widget: "string", required: false }
+              - label: "Height (px)"
+                name: "height"
+                widget: "number"
+                default: 400
+                min: 200
+                max: 800
+                step: 50
+                hint: "Height of the hero gallery strip"
+
           - label: "Text"
             name: "text"
             widget: "object"

@@ -3,6 +3,11 @@ layout: base.njk
 ---
 
 {% for block in blocks %}
+{% if block.type == "hero_gallery" %}
+<section class="section section-hero-gallery">
+  {% include "blocks/hero_gallery.njk" %}
+</section>
+{% else %}
 <section class="section section-{{ block.type }}">
   <div class="container">
     {% if block.heading %}
@@ -23,4 +28,5 @@ layout: base.njk
     {% endif %}
   </div>
 </section>
+{% endif %}
 {% endfor %}
