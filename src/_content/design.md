@@ -10,7 +10,7 @@ hero_bg_color: '#2e2e2e'
 section_padding: 150
 content_gap: 48
 container_width: 1100
-hero_gallery_height: 400
+hero_gallery_height: 800
 caption_align: left
 social_facebook: ''
 social_instagram: ''
