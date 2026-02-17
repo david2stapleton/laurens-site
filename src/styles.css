@@ -9,6 +9,7 @@
   --heading-font: 'Droid Serif', Georgia, serif;
   --body-font: 'Open Sans', Arial, sans-serif;
   --section-padding: 80px;
+  --page-top-padding: 80px;
   --content-gap: 48px;
   --container-width: 1100px;
 }
@@ -58,7 +59,7 @@ img {
 }
 
 .section:first-child {
-  padding-top: calc(64px + var(--section-padding));
+  padding-top: calc(64px + var(--page-top-padding));
 }
 
 
@@ -672,7 +673,7 @@ img {
   }
 
   .section:first-child {
-    padding-top: calc(64px + var(--section-padding) * 0.7);
+    padding-top: calc(64px + var(--page-top-padding) * 0.7);
   }
 
   .section h2 {

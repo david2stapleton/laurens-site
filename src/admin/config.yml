@@ -33,7 +33,8 @@ collections:
             default: "droid-opensans"
           - { label: "Hero Background Image", name: "hero_bg_image", widget: "image", required: false, hint: "Background image for the top hero section on the homepage" }
           - { label: "Hero Background Color", name: "hero_bg_color", widget: "color", default: "#2e2e2e", hint: "Fallback color if no hero image is set" }
-          - { label: "Section Padding (px)", name: "section_padding", widget: "number", default: 80, min: 40, max: 160, step: 8, hint: "Vertical spacing above and below each content section" }
+          - { label: "Section Padding (px)", name: "section_padding", widget: "number", default: 80, min: 40, max: 160, step: 8, hint: "Vertical spacing between content sections" }
+          - { label: "Page Top Padding (px)", name: "page_top_padding", widget: "number", default: 80, min: 40, max: 200, step: 8, hint: "Vertical spacing from the navbar to the first section" }
           - { label: "Content Gap (px)", name: "content_gap", widget: "number", default: 48, min: 16, max: 96, step: 8, hint: "Spacing between elements within a section" }
           - { label: "Container Width (px)", name: "container_width", widget: "number", default: 1100, min: 800, max: 1400, step: 50, hint: "Maximum width of the content area on large screens" }
           - { label: "Hero Gallery Height (px)", name: "hero_gallery_height", widget: "number", default: 400, min: 200, max: 800, step: 50, hint: "Default height of the hero gallery image strip" }
