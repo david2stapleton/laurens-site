@@ -7,5 +7,107 @@
 </head>
 <body>
   <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+  <script>
+    // Font pairing preview: inject sample text next to the font_pairing select
+    (function () {
+      const FONTS = {
+        'droid-opensans': {
+          heading: "'Droid Serif', Georgia, serif",
+          body: "'Open Sans', Arial, sans-serif",
+          url: 'https://fonts.googleapis.com/css2?family=Droid+Serif:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap'
+        },
+        'playfair-lato': {
+          heading: "'Playfair Display', Georgia, serif",
+          body: "'Lato', Arial, sans-serif",
+          url: 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap'
+        },
+        'cormorant-raleway': {
+          heading: "'Cormorant Garamond', Georgia, serif",
+          body: "'Raleway', Arial, sans-serif",
+          url: 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Raleway:wght@300;400;600&display=swap'
+        },
+        'baskerville-sourcesans': {
+          heading: "'Libre Baskerville', Georgia, serif",
+          body: "'Source Sans 3', Arial, sans-serif",
+          url: 'https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap'
+        },
+        'dmserif-dmsans': {
+          heading: "'DM Serif Display', Georgia, serif",
+          body: "'DM Sans', Arial, sans-serif",
+          url: 'https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;700&display=swap'
+        }
+      };
+
+      // Preload all font families
+      Object.values(FONTS).forEach(function (f) {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = f.url;
+        document.head.appendChild(link);
+      });
+
+      function createPreview() {
+        var el = document.createElement('div');
+        el.id = 'font-preview';
+        el.style.cssText = 'margin-top:12px;padding:16px;border:1px solid #ddd;border-radius:6px;background:#fafafa;';
+        el.innerHTML = '<div style="margin-bottom:4px;font-size:24px;font-weight:700;" id="fp-heading">Heading Preview</div>'
+          + '<div style="font-size:16px;font-weight:300;" id="fp-body">Body text preview — the quick brown fox jumps over the lazy dog.</div>';
+        return el;
+      }
+
+      function updatePreview(key) {
+        var font = FONTS[key];
+        if (!font) return;
+        var h = document.getElementById('fp-heading');
+        var b = document.getElementById('fp-body');
+        if (h) h.style.fontFamily = font.heading;
+        if (b) b.style.fontFamily = font.body;
+      }
+
+      // Poll for the font_pairing select widget in Sveltia CMS shadow DOM or regular DOM
+      var attempts = 0;
+      var timer = setInterval(function () {
+        attempts++;
+        if (attempts > 200) { clearInterval(timer); return; }
+
+        // Look for select elements or elements containing "Font Pairing" label
+        var selects = document.querySelectorAll('select');
+        var target = null;
+
+        selects.forEach(function (sel) {
+          // Check option values for our font pairing keys
+          var opts = sel.querySelectorAll('option');
+          opts.forEach(function (opt) {
+            if (opt.value === 'droid-opensans' || opt.value === 'playfair-lato') {
+              target = sel;
+            }
+          });
+        });
+
+        if (!target) return;
+        if (document.getElementById('font-preview')) return;
+
+        clearInterval(timer);
+
+        // Insert preview after the select's parent field wrapper
+        var wrapper = target.closest('.field') || target.parentElement;
+        var preview = createPreview();
+        wrapper.appendChild(preview);
+
+        // Set initial preview
+        updatePreview(target.value);
+
+        // Listen for changes
+        target.addEventListener('change', function () {
+          updatePreview(target.value);
+        });
+
+        // Also observe for programmatic changes
+        new MutationObserver(function () {
+          updatePreview(target.value);
+        }).observe(target, { attributes: true, childList: true });
+      }, 500);
+    })();
+  </script>
 </body>
 </html>

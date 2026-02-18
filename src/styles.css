@@ -24,6 +24,7 @@
 
 body {
   font-family: var(--body-font);
+  font-size: var(--body-font-size, 16px);
   color: var(--text);
   background-color: var(--bg);
   line-height: 1.7;
@@ -65,7 +66,7 @@ img {
 
 .section h2 {
   font-family: var(--heading-font);
-  font-size: 2rem;
+  font-size: var(--heading-font-size, 32px);
   margin-bottom: 40px;
   text-align: center;
   position: relative;
@@ -677,7 +678,7 @@ img {
   }
 
   .section h2 {
-    font-size: 1.6rem;
+    font-size: calc(var(--heading-font-size, 32px) * 0.8);
   }
 
   .text-with-image.mobile-image-inline .text-image-figure img {

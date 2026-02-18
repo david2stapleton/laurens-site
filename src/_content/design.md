@@ -12,6 +12,8 @@ page_top_padding: 80
 content_gap: 40
 container_width: 900
 hero_gallery_height: 800
+heading_font_size: 32
+body_font_size: 16
 caption_align: left
 social_facebook: ''
 social_instagram: ''

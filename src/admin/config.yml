@@ -31,6 +31,8 @@ collections:
               - { label: "Libre Baskerville + Source Sans 3 (Editorial)", value: "baskerville-sourcesans" }
               - { label: "DM Serif Display + DM Sans (Modern)", value: "dmserif-dmsans" }
             default: "droid-opensans"
+          - { label: "Heading Font Size (px)", name: "heading_font_size", widget: "number", default: 32, min: 20, max: 48, step: 1, hint: "Font size for section headings" }
+          - { label: "Body Font Size (px)", name: "body_font_size", widget: "number", default: 16, min: 14, max: 24, step: 1, hint: "Font size for body text" }
           - { label: "Hero Background Image", name: "hero_bg_image", widget: "image", required: false, hint: "Background image for the top hero section on the homepage" }
           - { label: "Hero Background Color", name: "hero_bg_color", widget: "color", default: "#2e2e2e", hint: "Fallback color if no hero image is set" }
           - { label: "Section Padding (px)", name: "section_padding", widget: "number", default: 80, min: 40, max: 160, step: 8, hint: "Vertical spacing between content sections" }
