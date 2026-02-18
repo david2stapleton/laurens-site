@@ -8,9 +8,9 @@ font_pairing: droid-opensans
 hero_bg_image: /images/img_8711.jpg
 hero_bg_color: '#2e2e2e'
 section_padding: 40
-page_top_padding: 150
-content_gap: 48
-container_width: 1100
+page_top_padding: 80
+content_gap: 40
+container_width: 900
 hero_gallery_height: 800
 caption_align: left
 social_facebook: ''
