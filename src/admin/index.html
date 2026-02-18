@@ -11,31 +11,18 @@
     // Font pairing preview: inject live sample below the font_pairing field
     (function () {
       var FONTS = {
-        'droid-opensans': { heading: "'Droid Serif', Georgia, serif", body: "'Open Sans', Arial, sans-serif", url: 'https://fonts.googleapis.com/css2?family=Droid+Serif:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap' },
-        'playfair-lato': { heading: "'Playfair Display', Georgia, serif", body: "'Lato', Arial, sans-serif", url: 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap' },
-        'cormorant-raleway': { heading: "'Cormorant Garamond', Georgia, serif", body: "'Raleway', Arial, sans-serif", url: 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Raleway:wght@300;400;600&display=swap' },
-        'baskerville-sourcesans': { heading: "'Libre Baskerville', Georgia, serif", body: "'Source Sans 3', Arial, sans-serif", url: 'https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap' },
-        'dmserif-dmsans': { heading: "'DM Serif Display', Georgia, serif", body: "'DM Sans', Arial, sans-serif", url: 'https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;700&display=swap' }
+        'droid-opensans': { heading: "'Droid Serif', Georgia, serif", body: "'Open Sans', Arial, sans-serif" },
+        'playfair-lato': { heading: "'Playfair Display', Georgia, serif", body: "'Lato', Arial, sans-serif" },
+        'cormorant-raleway': { heading: "'Cormorant Garamond', Georgia, serif", body: "'Raleway', Arial, sans-serif" },
+        'baskerville-sourcesans': { heading: "'Libre Baskerville', Georgia, serif", body: "'Source Sans 3', Arial, sans-serif" },
+        'dmserif-dmsans': { heading: "'DM Serif Display', Georgia, serif", body: "'DM Sans', Arial, sans-serif" }
       };
 
-      var PAIRING_KEYS = Object.keys(FONTS);
-
       // Preload all font families
-      Object.values(FONTS).forEach(function (f) {
-        var link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = f.url;
-        document.head.appendChild(link);
-      });
-
-      function createPreview() {
-        var el = document.createElement('div');
-        el.id = 'font-preview';
-        el.style.cssText = 'margin-top:12px;padding:16px;border:1px solid #ddd;border-radius:6px;background:#fafafa;';
-        el.innerHTML = '<div style="margin-bottom:4px;font-size:24px;font-weight:700;" id="fp-heading">Heading Preview</div>'
-          + '<div style="font-size:16px;font-weight:300;" id="fp-body">Body text preview — the quick brown fox jumps over the lazy dog.</div>';
-        return el;
-      }
+      var fontLink = document.createElement('link');
+      fontLink.rel = 'stylesheet';
+      fontLink.href = 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;700&family=DM+Serif+Display&family=Droid+Serif:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Libre+Baskerville:wght@400;700&family=Open+Sans:wght@300;400;600&family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&family=Source+Sans+3:wght@300;400;600&display=swap';
+      document.head.appendChild(fontLink);
 
       function updatePreview(key) {
         var font = FONTS[key];
@@ -46,25 +33,18 @@
         if (b) b.style.fontFamily = font.body;
       }
 
-      // Detect the current font pairing value from any element type
-      function detectValue(fieldEl) {
-        // Native <select>
-        var sel = fieldEl.querySelector('select');
+      // Detect current value from the field section
+      // Sveltia renders <=5 options as radio buttons, >5 as a combobox
+      function detectValue(section) {
+        // Radio buttons: checked input
+        var checked = section.querySelector('input[type="radio"]:checked');
+        if (checked) return checked.value;
+        // Combobox: look for the displayed label text
+        var combobox = section.querySelector('[role="combobox"]');
+        if (combobox) return matchLabel(combobox.textContent.trim());
+        // Native select fallback
+        var sel = section.querySelector('select');
         if (sel) return sel.value;
-        // Sveltia custom select: look for a button or span showing the selected label,
-        // or a hidden input, or an element with a data-value attribute
-        var hidden = fieldEl.querySelector('input[type="hidden"]');
-        if (hidden && hidden.value) return hidden.value;
-        // Check for listbox option with aria-selected
-        var selected = fieldEl.querySelector('[role="option"][aria-selected="true"]');
-        if (selected) {
-          var val = selected.getAttribute('data-value') || selected.textContent.trim();
-          // If it's a label like "Droid Serif + Open Sans (Classic)", match to key
-          return matchLabelToKey(val) || val;
-        }
-        // Check button text or displayed value
-        var btn = fieldEl.querySelector('button, [role="combobox"]');
-        if (btn) return matchLabelToKey(btn.textContent.trim());
         return null;
       }
 
@@ -76,53 +56,58 @@
         'dm serif': 'dmserif-dmsans'
       };
 
-      function matchLabelToKey(text) {
+      function matchLabel(text) {
         if (!text) return null;
         var lower = text.toLowerCase();
-        // Direct key match
         if (FONTS[lower]) return lower;
-        // Partial label match
-        for (var fragment in LABEL_MAP) {
-          if (lower.indexOf(fragment) !== -1) return LABEL_MAP[fragment];
+        for (var frag in LABEL_MAP) {
+          if (lower.indexOf(frag) !== -1) return LABEL_MAP[frag];
         }
         return null;
       }
 
-      // Find the font_pairing field wrapper by looking for a label containing "Font Pairing"
-      function findFontField() {
-        var labels = document.querySelectorAll('label, legend, [class*="label"], [class*="Label"]');
-        for (var i = 0; i < labels.length; i++) {
-          if (labels[i].textContent.trim().indexOf('Font Pairing') !== -1) {
-            // Walk up to the field wrapper
-            var field = labels[i].closest('[class*="field"], [class*="Field"], [data-field], fieldset')
-              || labels[i].parentElement;
-            return field;
-          }
-        }
-        return null;
-      }
+      var injected = false;
 
       function tryInject() {
-        if (document.getElementById('font-preview')) return;
-        var field = findFontField();
-        if (!field) return;
+        if (document.getElementById('font-preview')) { injected = true; return; }
+        injected = false;
 
-        var preview = createPreview();
-        field.appendChild(preview);
+        // Sveltia wraps each field in: <section class="field" data-key-path="font_pairing">
+        var section = document.querySelector('section[data-key-path="font_pairing"]');
+        if (!section) return;
 
-        var val = detectValue(field);
+        var preview = document.createElement('div');
+        preview.id = 'font-preview';
+        preview.style.cssText = 'margin-top:12px;padding:16px;border:1px solid #ddd;border-radius:6px;background:#fafafa;';
+        preview.innerHTML = '<div style="margin-bottom:4px;font-size:24px;font-weight:700;" id="fp-heading">Heading Preview</div>'
+          + '<div style="font-size:16px;font-weight:300;" id="fp-body">Body text preview — the quick brown fox jumps over the lazy dog.</div>';
+        section.appendChild(preview);
+        injected = true;
+
+        var val = detectValue(section);
         if (val) updatePreview(val);
 
-        // Watch for changes in the field subtree
+        // Watch for value changes (radio clicks, combobox changes)
         new MutationObserver(function () {
-          var v = detectValue(field);
+          var v = detectValue(section);
           if (v) updatePreview(v);
-        }).observe(field, { subtree: true, childList: true, attributes: true, characterData: true });
+        }).observe(section, { subtree: true, childList: true, attributes: true, attributeFilter: ['checked', 'aria-checked', 'aria-selected', 'class'] });
+
+        // Also listen for click/change events (radio buttons)
+        section.addEventListener('change', function () {
+          var v = detectValue(section);
+          if (v) updatePreview(v);
+        });
+        section.addEventListener('click', function () {
+          setTimeout(function () {
+            var v = detectValue(section);
+            if (v) updatePreview(v);
+          }, 50);
+        });
       }
 
-      // Use MutationObserver on body to react to CMS navigation/rendering
+      // Watch for CMS rendering / navigation
       new MutationObserver(function () {
-        // If preview was removed (CMS navigated away), allow re-injection
         tryInject();
       }).observe(document.body, { subtree: true, childList: true });
     })();
