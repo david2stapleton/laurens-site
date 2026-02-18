@@ -34,15 +34,22 @@
       }
 
       // Detect current value from the field section
-      // Sveltia renders <=5 options as radio buttons, >5 as a combobox
+      // Sveltia may render as: native radio, ARIA radio, combobox, or native select
       function detectValue(section) {
-        // Radio buttons: checked input
+        // Native radio
         var checked = section.querySelector('input[type="radio"]:checked');
         if (checked) return checked.value;
-        // Combobox: look for the displayed label text
+        // ARIA radio (custom Svelte component)
+        var ariaChecked = section.querySelector('[role="radio"][aria-checked="true"]');
+        if (ariaChecked) {
+          var val = ariaChecked.getAttribute('data-value') || ariaChecked.querySelector('input')?.value;
+          if (val) return val;
+          return matchLabel(ariaChecked.textContent.trim());
+        }
+        // Combobox
         var combobox = section.querySelector('[role="combobox"]');
         if (combobox) return matchLabel(combobox.textContent.trim());
-        // Native select fallback
+        // Native select
         var sel = section.querySelector('select');
         if (sel) return sel.value;
         return null;
@@ -87,11 +94,11 @@
         var val = detectValue(section);
         if (val) updatePreview(val);
 
-        // Watch for value changes (radio clicks, combobox changes)
+        // Watch for value changes (any DOM/attribute change in the field)
         new MutationObserver(function () {
           var v = detectValue(section);
           if (v) updatePreview(v);
-        }).observe(section, { subtree: true, childList: true, attributes: true, attributeFilter: ['checked', 'aria-checked', 'aria-selected', 'class'] });
+        }).observe(section, { subtree: true, childList: true, attributes: true });
 
         // Also listen for click/change events (radio buttons)
         section.addEventListener('change', function () {
