@@ -8,35 +8,17 @@
 <body>
   <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
   <script>
-    // Font pairing preview: inject sample text next to the font_pairing select
+    // Font pairing preview: inject live sample below the font_pairing field
     (function () {
-      const FONTS = {
-        'droid-opensans': {
-          heading: "'Droid Serif', Georgia, serif",
-          body: "'Open Sans', Arial, sans-serif",
-          url: 'https://fonts.googleapis.com/css2?family=Droid+Serif:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap'
-        },
-        'playfair-lato': {
-          heading: "'Playfair Display', Georgia, serif",
-          body: "'Lato', Arial, sans-serif",
-          url: 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap'
-        },
-        'cormorant-raleway': {
-          heading: "'Cormorant Garamond', Georgia, serif",
-          body: "'Raleway', Arial, sans-serif",
-          url: 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Raleway:wght@300;400;600&display=swap'
-        },
-        'baskerville-sourcesans': {
-          heading: "'Libre Baskerville', Georgia, serif",
-          body: "'Source Sans 3', Arial, sans-serif",
-          url: 'https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap'
-        },
-        'dmserif-dmsans': {
-          heading: "'DM Serif Display', Georgia, serif",
-          body: "'DM Sans', Arial, sans-serif",
-          url: 'https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;700&display=swap'
-        }
+      var FONTS = {
+        'droid-opensans': { heading: "'Droid Serif', Georgia, serif", body: "'Open Sans', Arial, sans-serif", url: 'https://fonts.googleapis.com/css2?family=Droid+Serif:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap' },
+        'playfair-lato': { heading: "'Playfair Display', Georgia, serif", body: "'Lato', Arial, sans-serif", url: 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap' },
+        'cormorant-raleway': { heading: "'Cormorant Garamond', Georgia, serif", body: "'Raleway', Arial, sans-serif", url: 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Raleway:wght@300;400;600&display=swap' },
+        'baskerville-sourcesans': { heading: "'Libre Baskerville', Georgia, serif", body: "'Source Sans 3', Arial, sans-serif", url: 'https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap' },
+        'dmserif-dmsans': { heading: "'DM Serif Display', Georgia, serif", body: "'DM Sans', Arial, sans-serif", url: 'https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;700&display=swap' }
       };
+
+      var PAIRING_KEYS = Object.keys(FONTS);
 
       // Preload all font families
       Object.values(FONTS).forEach(function (f) {
@@ -64,49 +46,85 @@
         if (b) b.style.fontFamily = font.body;
       }
 
-      // Poll for the font_pairing select widget in Sveltia CMS shadow DOM or regular DOM
-      var attempts = 0;
-      var timer = setInterval(function () {
-        attempts++;
-        if (attempts > 200) { clearInterval(timer); return; }
+      // Detect the current font pairing value from any element type
+      function detectValue(fieldEl) {
+        // Native <select>
+        var sel = fieldEl.querySelector('select');
+        if (sel) return sel.value;
+        // Sveltia custom select: look for a button or span showing the selected label,
+        // or a hidden input, or an element with a data-value attribute
+        var hidden = fieldEl.querySelector('input[type="hidden"]');
+        if (hidden && hidden.value) return hidden.value;
+        // Check for listbox option with aria-selected
+        var selected = fieldEl.querySelector('[role="option"][aria-selected="true"]');
+        if (selected) {
+          var val = selected.getAttribute('data-value') || selected.textContent.trim();
+          // If it's a label like "Droid Serif + Open Sans (Classic)", match to key
+          return matchLabelToKey(val) || val;
+        }
+        // Check button text or displayed value
+        var btn = fieldEl.querySelector('button, [role="combobox"]');
+        if (btn) return matchLabelToKey(btn.textContent.trim());
+        return null;
+      }
 
-        // Look for select elements or elements containing "Font Pairing" label
-        var selects = document.querySelectorAll('select');
-        var target = null;
+      var LABEL_MAP = {
+        'droid serif': 'droid-opensans',
+        'playfair': 'playfair-lato',
+        'cormorant': 'cormorant-raleway',
+        'baskerville': 'baskerville-sourcesans',
+        'dm serif': 'dmserif-dmsans'
+      };
 
-        selects.forEach(function (sel) {
-          // Check option values for our font pairing keys
-          var opts = sel.querySelectorAll('option');
-          opts.forEach(function (opt) {
-            if (opt.value === 'droid-opensans' || opt.value === 'playfair-lato') {
-              target = sel;
-            }
-          });
-        });
+      function matchLabelToKey(text) {
+        if (!text) return null;
+        var lower = text.toLowerCase();
+        // Direct key match
+        if (FONTS[lower]) return lower;
+        // Partial label match
+        for (var fragment in LABEL_MAP) {
+          if (lower.indexOf(fragment) !== -1) return LABEL_MAP[fragment];
+        }
+        return null;
+      }
 
-        if (!target) return;
+      // Find the font_pairing field wrapper by looking for a label containing "Font Pairing"
+      function findFontField() {
+        var labels = document.querySelectorAll('label, legend, [class*="label"], [class*="Label"]');
+        for (var i = 0; i < labels.length; i++) {
+          if (labels[i].textContent.trim().indexOf('Font Pairing') !== -1) {
+            // Walk up to the field wrapper
+            var field = labels[i].closest('[class*="field"], [class*="Field"], [data-field], fieldset')
+              || labels[i].parentElement;
+            return field;
+          }
+        }
+        return null;
+      }
+
+      function tryInject() {
         if (document.getElementById('font-preview')) return;
+        var field = findFontField();
+        if (!field) return;
 
-        clearInterval(timer);
-
-        // Insert preview after the select's parent field wrapper
-        var wrapper = target.closest('.field') || target.parentElement;
         var preview = createPreview();
-        wrapper.appendChild(preview);
+        field.appendChild(preview);
 
-        // Set initial preview
-        updatePreview(target.value);
+        var val = detectValue(field);
+        if (val) updatePreview(val);
 
-        // Listen for changes
-        target.addEventListener('change', function () {
-          updatePreview(target.value);
-        });
-
-        // Also observe for programmatic changes
+        // Watch for changes in the field subtree
         new MutationObserver(function () {
-          updatePreview(target.value);
-        }).observe(target, { attributes: true, childList: true });
-      }, 500);
+          var v = detectValue(field);
+          if (v) updatePreview(v);
+        }).observe(field, { subtree: true, childList: true, attributes: true, characterData: true });
+      }
+
+      // Use MutationObserver on body to react to CMS navigation/rendering
+      new MutationObserver(function () {
+        // If preview was removed (CMS navigated away), allow re-injection
+        tryInject();
+      }).observe(document.body, { subtree: true, childList: true });
     })();
   </script>
 </body>
