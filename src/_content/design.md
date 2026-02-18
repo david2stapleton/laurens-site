@@ -4,9 +4,9 @@ site_tagline: Soprano
 accent_color: '#78b07c'
 background_color: '#f2f2f2'
 text_color: '#2e2e2e'
-font_pairing: droid-opensans
-heading_font_size: 30
-body_font_size: 24
+font_pairing: cormorant-raleway
+heading_font_size: 35
+body_font_size: 20
 hero_bg_image: /images/img_8711.jpg
 hero_bg_color: '#2e2e2e'
 section_padding: 40
