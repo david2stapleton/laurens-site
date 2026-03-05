@@ -28,4 +28,13 @@ blocks:
     image: /images/IMG_7560.jpeg
     caption: ''
     size: medium
+  - type: reviews
+    heading: ''
+    reviews:
+      - quote: She's great!
+        author: ''
+      - quote: What a teacher
+        author: ''
+    autoplay: false
+    interval: 5
 ---
