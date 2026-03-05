@@ -3,6 +3,17 @@ title: Lessons
 layout: page.njk
 permalink: /lessons/
 blocks:
+  - type: reviews
+    heading: ''
+    reviews:
+      - quote: '"Lauren is teaching me to sing from my heart."'
+        author: -Eva, elementary student
+      - quote: '"Lauren was a delight to work with. From her instruction, my vocal range expanded, my voice became clearer, and my technique solidified; as a bonus, each lesson left me feeling brighter and re-energized. I absolutely recommend studying with Lauren!"'
+        author: -Lorenzo, college student (classical)
+      - quote: '"Over the last year of lessons with Lauren I have noticed a big improvement: not only in my singing, but also in my confidence!"'
+        author: -Sage, college student (musical theatre)
+    autoplay: true
+    interval: 5
   - type: text
     heading: ''
     body: |-
@@ -28,15 +39,4 @@ blocks:
     image: /images/IMG_7560.jpeg
     caption: ''
     size: medium
-  - type: reviews
-    heading: ''
-    reviews:
-      - quote: '"Lauren is teaching me to sing from my heart."'
-        author: -Eva, elementary student
-      - quote: '"Lauren was a delight to work with. From her instruction, my vocal range expanded, my voice became clearer, and my technique solidified; as a bonus, each lesson left me feeling brighter and re-energized. I absolutely recommend studying with Lauren!"'
-        author: -Lorenzo, college student (classical)
-      - quote: '"Over the last year of lessons with Lauren I have noticed a big improvement: not only in my singing, but also in my confidence!"'
-        author: -Sage, college student (musical theatre)
-    autoplay: true
-    interval: 5
 ---
