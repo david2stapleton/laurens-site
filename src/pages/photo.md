@@ -6,9 +6,11 @@ blocks:
   - type: text
     heading: Production Photos
     body: |-
-      # _Iolanthe, _The Savoyaires
+      # Production Photos
 
-      ## _Photos by  Ivan Indrautama and Steve Lemieux-Jordan_
+      ## _Iolanthe_,  The Savoyaires
+
+      ##### _Photos by  Ivan Indrautama and Steve Lemieux-Jordan_
     image: ''
     image_position: left
     mobile_image: inline
