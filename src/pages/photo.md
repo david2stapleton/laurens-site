@@ -3,9 +3,16 @@ title: Photo
 layout: page.njk
 permalink: /photo/
 blocks:
+  - type: text
+    heading: Production Photos
+    body: |-
+      # _Iolanthe, _The Savoyaires
+
+      ## _Photos by  Ivan Indrautama and Steve Lemieux-Jordan_
+    image: ''
+    image_position: left
+    mobile_image: inline
   - type: photo_grid
-    heading: Iolanthe with The Savoyaires
-    columns: 3
     images:
       - image: /images/IMG_6400.JPG
         caption: Photo by Ivan Indrautama
@@ -27,9 +34,9 @@ blocks:
         caption: Photo by Steve Lemieux-Jordan
       - image: /images/iolanthe 0925-2026354530.jpg
         caption: Photo by Steve Lemieux-Jordan
-  - type: photo_grid
-    heading: The Music Man with The Pinckney Players
+    heading: ''
     columns: 3
+  - type: photo_grid
     images:
       - image: /images/IMG_4393.jpeg
         caption: Photo by Sara Long
@@ -47,4 +54,6 @@ blocks:
         caption: Photo by Sara Long
       - image: /images/Facetune_15-10-2023-23-37-43.jpg
         caption: Photo by Sara Long
+    heading: The Music Man with The Pinckney Players
+    columns: 3
 ---
