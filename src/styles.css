@@ -63,6 +63,10 @@ img {
   padding-top: calc(64px + var(--page-top-padding));
 }
 
+.section:last-of-type {
+  padding-bottom: calc(var(--section-padding) * 6);
+}
+
 
 .section h2 {
   font-family: var(--heading-font);
@@ -106,7 +110,7 @@ img {
 
 .nav-logo {
   font-family: var(--heading-font);
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: var(--text);
   font-weight: 700;
   margin: 0 40px;
@@ -133,7 +137,7 @@ img {
 
 .nav-links a {
   color: var(--text);
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 400;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -183,6 +187,30 @@ img {
 
 .text-with-image.text-image-right .text-image-body {
   order: 1;
+}
+
+.text-image-figure {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.text-image-figure img {
+  width: 100%;
+  display: block;
+}
+
+.reviews-carousel.reviews-inline {
+  max-width: 100%;
+  text-align: center;
+  background: color-mix(in srgb, var(--accent) var(--review-bg-mix), var(--bg));
+  padding: 20px 24px;
+  border-radius: 8px;
+  margin: 0 0 var(--content-gap);
+}
+
+.text-image-body {
+  text-align: justify;
 }
 
 .text-image-body p {
@@ -269,6 +297,30 @@ img {
   aspect-ratio: 16 / 9;
 }
 
+/* ========================================
+   Photo Album Block
+   ======================================== */
+.photo-album-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.photo-album-title {
+  font-family: var(--heading-font);
+  font-size: 1.4rem;
+  margin: 0 0 8px;
+}
+
+.photo-album-title p {
+  margin: 0;
+}
+
+.photo-album-credits {
+  font-size: 0.9rem;
+  color: #888;
+  margin: 0;
+}
+
 .youtube-thumb {
   position: relative;
   display: block;
@@ -317,11 +369,18 @@ img {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--content-gap);
-  align-items: start;
+  align-items: center;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
 }
 
 .contact-info p {
-  margin-bottom: 16px;
+  margin-bottom: 0;
 }
 
 .contact-email a {
@@ -425,6 +484,10 @@ img {
 /* ========================================
    Reviews Carousel
    ======================================== */
+.section-reviews {
+  background: color-mix(in srgb, var(--accent) var(--review-bg-mix), var(--bg));
+}
+
 .reviews-carousel {
   max-width: 700px;
   margin: 0 auto;
@@ -433,7 +496,11 @@ img {
 
 .reviews-track {
   position: relative;
-  min-height: 120px;
+  height: var(--review-height);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .review-slide {
@@ -513,6 +580,10 @@ img {
    ======================================== */
 .section-hero-gallery {
   padding: 0;
+}
+
+.section-hero-gallery.section:first-of-type {
+  padding-top: 64px;
 }
 
 .hero-gallery {
@@ -675,6 +746,10 @@ img {
 
   .section:first-of-type {
     padding-top: calc(64px + var(--page-top-padding) * 0.7);
+  }
+
+  .section-hero-gallery.section:first-of-type {
+    padding-top: 64px;
   }
 
   .section h2 {

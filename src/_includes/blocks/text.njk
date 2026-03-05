@@ -1,14 +1,67 @@
-{% if block.image %}
+{% set has_image = block.image or (block.images and block.images.length) %}
+{% if has_image %}
 <div class="text-with-image text-image-{{ block.image_position | default('left') }} mobile-image-{{ block.mobile_image | default('inline') }}">
   <div class="text-image-figure">
-    <img src="{{ block.image }}" alt="">
+    {% if block.images and block.images.length %}
+      {% for img in block.images %}
+        <img src="{{ img }}" alt="">
+      {% endfor %}
+    {% else %}
+      <img src="{{ block.image }}" alt="">
+    {% endif %}
   </div>
   <div class="text-image-body">
+    {% if block.reviews and block.reviews.length %}
+      <div class="reviews-carousel reviews-inline" data-autoplay="{{ block.autoplay | default(false) }}" data-interval="{{ block.interval | default(5) }}">
+        <div class="reviews-track">
+          {% for item in block.reviews %}
+            <blockquote class="review-slide{% if loop.first %} active{% endif %}">
+              <div class="review-text">{{ item.quote | markdown | safe }}</div>
+              {% if item.author %}<cite class="review-author">— {{ item.author }}</cite>{% endif %}
+            </blockquote>
+          {% endfor %}
+        </div>
+        {% if block.reviews.length > 1 %}
+          <div class="reviews-nav">
+            <button class="reviews-prev" aria-label="Previous review">&#8249;</button>
+            <div class="reviews-dots">
+              {% for item in block.reviews %}
+                <span class="reviews-dot{% if loop.first %} active{% endif %}"></span>
+              {% endfor %}
+            </div>
+            <button class="reviews-next" aria-label="Next review">&#8250;</button>
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
     {{ block.body | markdown | safe }}
   </div>
 </div>
 {% else %}
 <div class="text-body">
+  {% if block.reviews and block.reviews.length %}
+    <div class="reviews-carousel reviews-inline" data-autoplay="{{ block.autoplay | default(false) }}" data-interval="{{ block.interval | default(5) }}">
+      <div class="reviews-track">
+        {% for item in block.reviews %}
+          <blockquote class="review-slide{% if loop.first %} active{% endif %}">
+            <div class="review-text">{{ item.quote | markdown | safe }}</div>
+            {% if item.author %}<cite class="review-author">— {{ item.author }}</cite>{% endif %}
+          </blockquote>
+        {% endfor %}
+      </div>
+      {% if block.reviews.length > 1 %}
+        <div class="reviews-nav">
+          <button class="reviews-prev" aria-label="Previous review">&#8249;</button>
+          <div class="reviews-dots">
+            {% for item in block.reviews %}
+              <span class="reviews-dot{% if loop.first %} active{% endif %}"></span>
+            {% endfor %}
+          </div>
+          <button class="reviews-next" aria-label="Next review">&#8250;</button>
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
   {{ block.body | markdown | safe }}
 </div>
 {% endif %}

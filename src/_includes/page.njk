@@ -11,7 +11,7 @@ layout: base.njk
 <section class="section section-{{ block.type }}">
   <div class="container">
     {% if block.heading %}
-      <h2>{{ block.heading }}</h2>
+      <h2>{{ block.heading | markdownInline | safe }}</h2>
     {% endif %}
     {% if block.type == "text" %}
       {% include "blocks/text.njk" %}
@@ -25,6 +25,8 @@ layout: base.njk
       {% include "blocks/reviews.njk" %}
     {% elif block.type == "youtube_grid" %}
       {% include "blocks/youtube_grid.njk" %}
+    {% elif block.type == "photo_album" %}
+      {% include "blocks/photo_album.njk" %}
     {% elif block.type == "contact" %}
       {% include "blocks/contact.njk" %}
     {% endif %}

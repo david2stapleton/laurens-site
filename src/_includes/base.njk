@@ -22,6 +22,8 @@
       --container-width: {{ site.design.container_width | default(1100) }}px;
       --heading-font-size: {{ site.design.heading_font_size | default(32) }}px;
       --body-font-size: {{ site.design.body_font_size | default(16) }}px;
+      --review-bg-mix: {{ site.design.review_bg_opacity | default(15) }}%;
+      --review-height: {{ site.design.review_height | default(160) }}px;
     }
   </style>
 </head>
@@ -35,7 +37,7 @@
         <ul class="nav-links nav-left" id="nav-links-left">
           {% for item in site.design.nav %}
             {% if loop.index0 < mid %}
-              <li><a href="{{ item.slug }}"{% if page.url == item.slug %} class="active"{% endif %}>{{ item.label }}</a></li>
+              <li><a href="{{ item.slug }}"{% if page.url == item.slug %} class="active"{% endif %}>{{ item.label | markdownInline | safe }}</a></li>
             {% endif %}
           {% endfor %}
         </ul>
@@ -48,7 +50,7 @@
         <ul class="nav-links nav-right" id="nav-links-right">
           {% for item in site.design.nav %}
             {% if loop.index0 >= mid %}
-              <li><a href="{{ item.slug }}"{% if page.url == item.slug %} class="active"{% endif %}>{{ item.label }}</a></li>
+              <li><a href="{{ item.slug }}"{% if page.url == item.slug %} class="active"{% endif %}>{{ item.label | markdownInline | safe }}</a></li>
             {% endif %}
           {% endfor %}
         </ul>

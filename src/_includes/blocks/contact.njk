@@ -1,7 +1,4 @@
 <div class="contact-grid">
-  <div class="contact-info">
-    <p>{{ block.intro }}</p>
-  </div>
   <form class="contact-form" id="contact-form" action="https://formsubmit.co/73d6a7aab01a74f88648c387323e2036" method="POST">
     <input type="hidden" name="_subject" value="New contact from {{ site.design.site_name }}">
     <input type="hidden" name="_captcha" value="false">
@@ -18,6 +15,9 @@
       <label for="message">Message</label>
       <textarea id="message" name="message" rows="5" required></textarea>
     </div>
-    <button type="submit" class="btn">Send Message</button>
   </form>
+  <div class="contact-info">
+    <p>{{ block.intro }}</p>
+    <button type="submit" form="contact-form" class="btn">Send Message</button>
+  </div>
 </div>

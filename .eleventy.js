@@ -9,6 +9,13 @@ module.exports = function (eleventyConfig) {
     return md.render(value);
   });
 
+  // Inline markdown — no wrapping <p>, safe for headings and titles
+  // Also converts <u>...</u> (CMS italic artifact) to <em>
+  eleventyConfig.addFilter('markdownInline', value => {
+    if (!value) return '';
+    return md.renderInline(value).replace(/<u>(.*?)<\/u>/gi, '<em>$1</em>');
+  });
+
   // Extract YouTube video ID from various URL formats
   eleventyConfig.addFilter('youtubeId', value => {
     if (!value) return '';

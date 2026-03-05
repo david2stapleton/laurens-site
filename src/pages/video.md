@@ -21,7 +21,7 @@ blocks:
           Recorded 2025
       - url: https://youtu.be/gt8sZhSElYw?si=tOXvgjlnbvKCmOkz
         title: |-
-          "Glitter and Be Gay" from _Candide _by Bernstein
+          "Glitter and Be Gay" from _Candide_ by Bernstein
           Recorded 2024
       - url: https://youtu.be/dKDYtXnsyhM?si=_R1Rr-Ufn8iPHJLU
         title: |-

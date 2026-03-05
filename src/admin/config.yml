@@ -49,6 +49,8 @@ collections:
               - { label: "Center", value: "center" }
               - { label: "Right", value: "right" }
             default: "center"
+          - { label: "Review Background Opacity (%)", name: "review_bg_opacity", widget: "number", default: 15, min: 0, max: 100, step: 5, hint: "How much the accent color tints the reviews section background (0 = none, 100 = full accent color)" }
+          - { label: "Review Panel Height (px)", name: "review_height", widget: "number", default: 160, min: 80, max: 400, step: 10, hint: "Fixed height of the reviews carousel — set tall enough for your longest review" }
           - { label: "Facebook URL", name: "social_facebook", widget: "string", required: false, hint: "Full URL to your Facebook page" }
           - { label: "Instagram URL", name: "social_instagram", widget: "string", required: false, hint: "Full URL to your Instagram profile" }
           - { label: "YouTube URL", name: "social_youtube", widget: "string", required: false, hint: "Full URL to your YouTube channel" }
@@ -131,6 +133,20 @@ collections:
                   - { label: "Hide", value: "hide" }
                 default: "inline"
                 required: false
+              - label: "Images (multiple, stacked vertically)"
+                name: "images"
+                widget: "list"
+                required: false
+                field: { label: "Image", name: "image", widget: "image" }
+              - label: "Reviews"
+                name: "reviews"
+                widget: "list"
+                required: false
+                fields:
+                  - { label: "Quote", name: "quote", widget: "text" }
+                  - { label: "Author", name: "author", widget: "string", required: false }
+              - { label: "Autoplay Reviews", name: "autoplay", widget: "boolean", default: true, required: false }
+              - { label: "Review Interval (seconds)", name: "interval", widget: "number", default: 5, min: 2, max: 15, required: false }
 
           - label: "Photo"
             name: "photo"
@@ -191,6 +207,37 @@ collections:
                       - { label: "Top Right", value: "top right" }
                       - { label: "Bottom Left", value: "bottom left" }
                       - { label: "Bottom Right", value: "bottom right" }
+                    default: "center"
+                    required: false
+
+          - label: "Photo Album"
+            name: "photo_album"
+            widget: "object"
+            fields:
+              - { label: "Section Heading", name: "heading", widget: "string", required: false, hint: "Large section title, e.g. 'Production Photos'" }
+              - { label: "Production Title", name: "title", widget: "string", required: false, hint: "Show/album name. Use *italics* for italic text." }
+              - { label: "Credits", name: "credits", widget: "string", required: false, hint: "e.g. Photos by Jane Smith" }
+              - label: "Columns"
+                name: "columns"
+                widget: "number"
+                default: 3
+                min: 2
+                max: 4
+              - label: "Images"
+                name: "images"
+                widget: "list"
+                fields:
+                  - { label: "Image", name: "image", widget: "image" }
+                  - { label: "Caption", name: "caption", widget: "markdown", required: false }
+                  - label: "Focal Point"
+                    name: "focus"
+                    widget: "select"
+                    options:
+                      - { label: "Center", value: "center" }
+                      - { label: "Top", value: "top" }
+                      - { label: "Bottom", value: "bottom" }
+                      - { label: "Left", value: "left" }
+                      - { label: "Right", value: "right" }
                     default: "center"
                     required: false
 
