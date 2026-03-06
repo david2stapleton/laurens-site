@@ -4,10 +4,6 @@ layout: page.njk
 permalink: /photo/
 blocks:
   - type: photo_album
-    heading: ''
-    title: "*Iolanthe*, The Savoyaires"
-    credits: Photos by Ivan Indrautama and Steve Lemieux-Jordan
-    columns: 3
     images:
       - image: /images/IMG_6400.JPG
         caption: ''
@@ -27,11 +23,11 @@ blocks:
         caption: ''
       - image: /images/iolanthe 0925-1959139960.jpg
         caption: ''
-  - type: photo_album
-    heading: ''
-    title: "*The Music Man*, The Pinckney Players"
-    credits: Photos by Sara Long
+    heading: Production Photos
     columns: 3
+    title: '*Iolanthe*, The Savoyaires'
+    credits: Photos by Ivan Indrautama and Steve Lemieux-Jordan
+  - type: photo_album
     images:
       - image: /images/IMG_4393.jpeg
         caption: ''
@@ -49,4 +45,20 @@ blocks:
         caption: ''
       - image: /images/Facetune_15-10-2023-23-37-43.jpg
         caption: ''
+      - image: /images/IMG_4405.jpeg
+        focus: center
+        caption: ''
+    heading: ''
+    columns: 3
+    title: '*The Music Man*, The Pinckney Players'
+    credits: Photos by Sara Long
+  - type: photo_album
+    images:
+      - image: /images/pointing.jpg
+        focus: center
+        caption: ''
+    heading: ''
+    columns: 3
+    title: '*[title of show]*, UMKC Theatre'
+    credits: Photos by Khalif Gillet
 ---
