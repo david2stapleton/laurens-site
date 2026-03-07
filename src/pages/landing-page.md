@@ -8,9 +8,9 @@ blocks:
       - image: /images/31166895637_e9175ef125_o-1.jpg
         alt: ''
         focus: ''
-      - image: /images/Facetune_15-10-2023-23-40-03.jpg
-        alt: ''
       - image: /images/IMG_4393.jpeg
+        alt: ''
+      - image: /images/Facetune_15-10-2023-23-40-03.jpg
         alt: ''
     height: 750
   - type: text
