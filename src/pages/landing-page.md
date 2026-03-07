@@ -10,7 +10,7 @@ blocks:
         focus: ''
       - image: /images/Music Man Header Crop-1.jpg
         alt: ''
-      - image: /images/IMG_4393.jpeg
+      - image: /images/IMG_4393 crop.jpeg
         alt: ''
     height: 750
   - type: text
