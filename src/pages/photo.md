@@ -23,7 +23,7 @@ blocks:
         caption: ''
       - image: /images/iolanthe 0925-1959139960.jpg
         caption: ''
-    heading: Production Photos
+    heading: ''
     columns: 3
     title: '*Iolanthe*, The Savoyaires'
     credits: Photos by Ivan Indrautama and Steve Lemieux-Jordan
@@ -112,4 +112,37 @@ blocks:
     columns: 3
     title: '*[title of show]*, UMKC Theatre'
     credits: Photos by Khalif Gillet
+  - type: photo_album
+    images:
+      - image: /images/DSC_1331.JPG
+        focus: center
+        caption: ''
+      - image: /images/DSC_1347.JPG
+        focus: center
+        caption: ''
+      - image: /images/DSC_1404.JPG
+        focus: center
+        caption: ''
+      - image: /images/DSC_1400.JPG
+        focus: center
+        caption: ''
+      - image: /images/DSC_1300.JPG
+        focus: center
+        caption: ''
+      - image: /images/DSC_1294.JPG
+        focus: center
+        caption: ''
+      - image: /images/DSC_1235.JPG
+        focus: center
+        caption: ''
+      - image: /images/DSC_1177.JPG
+        focus: center
+        caption: ''
+      - image: /images/DSC_0820.JPG
+        focus: center
+        caption: ''
+    heading: ''
+    columns: 3
+    title: '*Dido and Aeneas*, UMKC Opera'
+    credits: ''
 ---
