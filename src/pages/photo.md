@@ -57,6 +57,57 @@ blocks:
       - image: /images/pointing.jpg
         focus: center
         caption: ''
+      - image: /images/Title of Show Web 4.jpg
+        focus: center
+        caption: ''
+      - image: /images/Title of Show 9.jpg
+        focus: center
+        caption: ''
+      - image: /images/Title of Show 6.jpg
+        focus: center
+        caption: ''
+      - image: /images/Title of Show 5.jpg
+        focus: center
+        caption: ''
+      - image: /images/Title of Show 22.jpg
+        focus: center
+        caption: ''
+      - image: /images/Title of Show 21.jpg
+        focus: center
+        caption: ''
+      - image: /images/Title of Show 20.jpg
+        focus: center
+        caption: ''
+      - image: /images/Title of Show 19.jpg
+        focus: center
+        caption: ''
+      - image: /images/Title of Show 18.jpg
+        focus: center
+        caption: ''
+      - image: /images/Title of Show 17.jpg
+        focus: center
+        caption: ''
+      - image: /images/Title of Show 16.jpg
+        focus: center
+        caption: ''
+      - image: /images/Title of Show 15.jpg
+        focus: center
+        caption: ''
+      - image: /images/Title of Show 14.jpg
+        focus: center
+        caption: ''
+      - image: /images/Title of Show 13.jpg
+        focus: center
+        caption: ''
+      - image: /images/Title of Show 12.jpg
+        focus: center
+        caption: ''
+      - image: /images/Title of Show 11.jpg
+        focus: center
+        caption: ''
+      - image: /images/Title of Show 10.jpg
+        focus: center
+        caption: ''
     heading: ''
     columns: 3
     title: '*[title of show]*, UMKC Theatre'
