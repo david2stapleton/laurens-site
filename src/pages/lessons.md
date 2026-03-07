@@ -42,4 +42,10 @@ blocks:
         author: Eleanor, middle school student
     autoplay: true
     interval: 5
+  - type: links
+    heading: ''
+    links:
+      - label: Teaching Statement
+        url: https://laurens-site.pages.dev/images/Sutherland%20Teaching%20Statement.pdf
+        new_tab: false
 ---
