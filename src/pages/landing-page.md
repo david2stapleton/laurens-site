@@ -8,7 +8,7 @@ blocks:
       - image: /images/31166895637_e9175ef125_o-1.jpg
         alt: ''
         focus: ''
-      - image: /images/Music Man Header Crop.jpg
+      - image: /images/Music Man Header Crop-1.jpg
         alt: ''
       - image: /images/IMG_4393.jpeg
         alt: ''
