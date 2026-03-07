@@ -22,7 +22,7 @@ blocks:
     images:
       - /images/IMG_7921-1.jpg
       - /images/IMG_8842.jpg
-      - /images/Sutherland_Lauren-189.jpg
+      - /images/Sutherland_Lauren-189-compressed.jpg
     interval: null
   - type: links
     heading: ''
