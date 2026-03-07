@@ -17,8 +17,13 @@ blocks:
       Lauren holds degrees from the Wheaton College Conservatory and the University of Missouri Kansas City. Her graduate research included an overview of Scandinavian art song literature, as well as a thesis on Agathe Backer-Grøndahl's Norwegian song cycles _Barnets vårdag_ and _Sommer._ During her time at UMKC, she was a finalist in both the Chancellor's Competition and the Concerto Aria Competition, and was a two-time recipient of the UMKC Women's Council Grant. As a Graduate Teaching Assistant at UMKC, Lauren taught private voice lessons to undergraduate students, and continues to nurture students in her active private studio.
 
       Lauren is an avid runner and recently completed her fifth half marathon. She also loves game nights, knitting, and scouring vintage stores. She resides in Oak Park, IL with her husband David, cat Leonard Bernstein, and dog Bird.
-    image: /images/IMG_7921.jpg
+    image: ''
     image_position: right
+    images:
+      - /images/IMG_7921-1.jpg
+      - /images/IMG_8842.jpg
+      - /images/IMG_8214.jpg
+    interval: null
   - type: links
     heading: ''
     links:
