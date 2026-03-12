@@ -1,7 +1,7 @@
 ---
 title: College Prep
 layout: page.njk
-permalink: /cvcp
+permalink: /cvcp/
 blocks:
   - type: text
     images: []
