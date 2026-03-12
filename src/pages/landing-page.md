@@ -16,9 +16,11 @@ blocks:
   - type: text
     heading: ''
     body: |-
-      > Sutherland was **"graceful, charming and sang like a bird"**- _Chicago Theatre Review_ on her performance of Phyllis in Iolanthe
+      ### Sutherland was **"graceful, charming and sang like a bird"**
 
-      Coloratura soprano Lauren Sutherland is an exciting newcomer to the Chicago classical music scene. During the 25-26 season, Lauren has performed as Verveine in **Bellissima Opera**'s Chicago premiere of Pauline Viardot's _Le Dernier Sorcier_, Peep-Bo in the **Savoyaire**'s re-invented _Mikado_, and Suor Genoveffia in **Midwest Opera Theatre**'s _Suor Angelica_. In April 2026, she will sing the role of Lucy in Menotti's _The Telephone _with **Fox Valley Opera.**
+      ### - _Chicago Theatre Review_ on her performance of Phyllis in Iolanthe
+
+      Coloratura soprano Lauren Sutherland is an exciting newcomer to the Chicago classical music scene. During the 25-26 season, Lauren has performed as Verveine in **Bellissima Opera**'s Chicago premiere of Pauline Viardot's _Le Dernier Sorcier_, Peep-Bo in the **Savoyaire**'s re-invented _Mikado_, and Suor Genoveffia in **Midwest Opera Theatre**'s _Suor Angelica_. In April 2026, she will sing the role of Lucy in Menotti's _The Telephone_ with **Fox Valley Opera.**
 
       Lauren holds degrees from the Wheaton College Conservatory and the University of Missouri Kansas City, where she studied with Maria Kanyova.
 
