@@ -30,6 +30,8 @@ nav:
     slug: /photo/
   - label: Videos
     slug: /videos/
+  - label: College Prep
+    slug: /cvcp/
   - label: Contact
     slug: /contact/
 ---
