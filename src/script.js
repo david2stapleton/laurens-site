@@ -74,7 +74,7 @@ const contactForm = document.getElementById('contact-form');
 if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const btn = contactForm.querySelector('.btn');
+    const btn = document.querySelector('[form="contact-form"]');
     btn.textContent = 'Sending...';
     btn.disabled = true;
 
