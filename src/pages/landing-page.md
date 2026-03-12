@@ -24,10 +24,19 @@ blocks:
     image: /images/Sutherland_Lauren_Headshot3.jpg
     image_position: right
     mobile_image: inline
+    interval: null
   - type: links
     heading: ''
     links:
       - label: Read more about Lauren
         url: https://laurens-site.pages.dev/about/
         new_tab: true
+  - type: photo
+    image: /images/Fox Valley Ad.png
+    caption: |-
+      Coming up next! 
+
+      [Ticket Information](https://www.foxvalleyopera.org/home)
+    focus: center
+    size: medium
 ---
