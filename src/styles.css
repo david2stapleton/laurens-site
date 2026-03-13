@@ -372,15 +372,17 @@ img {
   align-items: center;
 }
 
-.contact-info {
+.contact-form-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 20px;
 }
 
-.contact-info p {
-  margin-bottom: 0;
+.contact-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
 }
 
 .contact-email a {
@@ -404,14 +406,20 @@ img {
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 12px 14px;
-  border: 1px solid #ddd;
+  padding: 16px 18px;
+  border: 1px solid #ccc;
   border-radius: 4px;
   font-family: var(--body-font);
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--text);
-  background: var(--white);
+  background: #f0f0f0;
   transition: border-color 0.2s;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #999;
+  font-weight: 300;
 }
 
 .form-group input:focus,
@@ -607,6 +615,75 @@ img {
 }
 
 /* ========================================
+   Events Block
+   ======================================== */
+.event-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: stretch;
+  background: color-mix(in srgb, var(--accent) var(--review-bg-mix), var(--bg));
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.event-item .event-details {
+  padding: 32px;
+}
+
+.event-item + .event-item {
+  margin-top: var(--content-gap);
+}
+
+.event-item.event-image-right {
+  direction: rtl;
+}
+
+.event-item.event-image-right > * {
+  direction: ltr;
+}
+
+.event-image {
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.event-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.event-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  padding: 8px 0;
+}
+
+.event-title {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.event-meta {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.event-description {
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ========================================
    Responsive
    ======================================== */
 @media (max-width: 768px) {
@@ -715,6 +792,19 @@ img {
 
   .contact-form .btn {
     width: 100%;
+  }
+
+  /* Events */
+  .event-item {
+    grid-template-columns: 1fr;
+  }
+
+  .event-item.event-image-right .event-image {
+    order: -1;
+  }
+
+  .contact-photo {
+    display: none;
   }
 
   /* Links */

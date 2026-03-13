@@ -14,7 +14,7 @@ const navRight = document.getElementById('nav-links-right');
 if (navToggle && navRight) {
   // On mobile, move left nav items into the right list so they all show in the hamburger
   if (navLeft && window.innerWidth <= 768) {
-    const items = Array.from(navLeft.children);
+    const items = Array.from(navLeft.children).reverse();
     items.forEach(item => navRight.insertBefore(item, navRight.firstChild));
   }
   navToggle.addEventListener('click', () => {

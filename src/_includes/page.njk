@@ -29,6 +29,8 @@ layout: base.njk
       {% include "blocks/photo_album.njk" %}
     {% elif block.type == "contact" %}
       {% include "blocks/contact.njk" %}
+    {% elif block.type == "events" %}
+      {% include "blocks/events.njk" %}
     {% endif %}
   </div>
 </section>

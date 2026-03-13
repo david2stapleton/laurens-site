@@ -292,3 +292,30 @@ collections:
             fields:
               - { label: "Heading", name: "heading", widget: "string", default: "Contact" }
               - { label: "Intro Text", name: "intro", widget: "text" }
+              - { label: "Photo", name: "image", widget: "image", required: false }
+
+          - label: "Upcoming Events"
+            name: "events"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string", required: false }
+              - label: "Events"
+                name: "events"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Date", name: "date", widget: "string" }
+                  - { label: "Time", name: "time", widget: "string", required: false }
+                  - { label: "Location", name: "location", widget: "string", required: false }
+                  - { label: "Description", name: "description", widget: "text", required: false }
+                  - { label: "Ticket Link Label", name: "link_label", widget: "string", required: false }
+                  - { label: "Ticket Link URL", name: "link_url", widget: "string", required: false }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - label: "Image Side"
+                    name: "image_side"
+                    widget: "select"
+                    options:
+                      - { label: "Left", value: "left" }
+                      - { label: "Right", value: "right" }
+                    default: "left"
+                    required: false

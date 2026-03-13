@@ -31,12 +31,23 @@ blocks:
       - label: Read more about Lauren
         url: https://laurens-site.pages.dev/about/
         new_tab: true
-  - type: photo
-    image: /images/Fox Valley Ad.png
-    caption: |-
-      ### Coming up next!
-
-      ### [Ticket Information](https://www.foxvalleyopera.org/home)
-    focus: center
-    size: medium
+  - type: events
+    heading: Upcoming Events
+    events:
+      - title: The Telephone
+        date: April 2026
+        location: Fox Valley Opera
+        description: Lauren sings the role of Lucy in Menotti's The Telephone with Fox Valley Opera.
+        link_label: Ticket Information
+        link_url: https://www.foxvalleyopera.org/home
+        image: /images/Fox Valley Ad.png
+        image_side: left
+      - title: The Telephone
+        date: April 2026
+        location: Fox Valley Opera
+        description: Lauren sings the role of Lucy in Menotti's The Telephone with Fox Valley Opera.
+        link_label: Ticket Information
+        link_url: https://www.foxvalleyopera.org/home
+        image: /images/Fox Valley Ad.png
+        image_side: right
 ---
