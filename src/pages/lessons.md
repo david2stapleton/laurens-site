@@ -14,7 +14,7 @@ blocks:
 
       Lauren teaches online students from across America and in-person students in the Oak Park/Chicago area. Lauren specializes in at-home lessons in the student's home for your convenience!
 
-      20 min initial consultations are free of charge, and all inquiries can be directed to Lauren at sutherland.lauren.m@gmail.com.
+      20 min initial consultations are free of charge.
     image_position: left
     mobile_image: inline
     images:
@@ -47,5 +47,8 @@ blocks:
     links:
       - label: Teaching Statement
         url: https://laurens-site.pages.dev/images/Sutherland%20Teaching%20Statement.pdf
+        new_tab: false
+      - label: Contact Me!
+        url: https://www.laurensutherlandsoprano.com/contact/
         new_tab: false
 ---
