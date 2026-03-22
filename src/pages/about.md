@@ -10,7 +10,7 @@ blocks:
 
       From her early training at the Las Vegas Academy of the Arts, Lauren was especially drawn to comedic roles and has since excelled portraying some of opera's funniest heroines such as Cunegonde (_Candide_), Adele (_Die Fledermaus_), Serpetta (_La finta giardiniera_), and Zerbinetta (_Ariadne auf Naxos_). She has also been recognized for her outstanding comedic acting as a finalist in the 2023 Harold Haugh Comic Opera Competition.
 
-      Previous operatic roles include Madame Herz (_The Impresario_), Queen of the Night and Pamina (_Die Zauberflöte_), Le Feu (_L'enfant et les sortilèges_), Belinda (_Dido and Aeneas_), the Dew Fairy (_Hänsel und Gretel_), and Naiad (_Ariadne auf Naxos_). She has performed with the Midwest Opera Theatre, singing both Musetta (_La Bohème_) and La Suora Zelatrice (_Suor Angelica_). Her musical theater credits include Marian Paroo in _The Music Man_, Susan in the 2009 musical _[title of show]_, and the Fairy Godmother in Rodgers and Hammerstein's _Cinderella._
+      Previous operatic roles include Madame Herz (_The Impresario_), Queen of the Night and Pamina (_Die Zauberflöte_), Le Feu (_L'enfant et les sortilèges_), Belinda (_Dido and Aeneas_), the Dew Fairy (_Hänsel und Gretel_), and Naiad (_Ariadne auf Naxos_). She has performed with the Midwest Opera Theatre, singing both Musetta (_La Bohème_) and Suor Genovieffa (_Suor Angelica_). Her musical theater credits include Marian Paroo in _The Music Man_, Susan in the 2009 musical _[title of show]_, and the Fairy Godmother in Rodgers and Hammerstein's _Cinderella._
 
       Aside from her career as a soloist, Lauren is also an accomplished chorister. She has joined the Toledo Opera chorus in the 22/23 season and performed in _Suor Angelica, Cavalleria Rusticana, Roméo et Juliette_ and _Ragtime._
 
@@ -28,6 +28,6 @@ blocks:
     heading: ''
     links:
       - label: Download Resume
-        url: /images/sutherland_lauren_soprano_resume.pdf
+        url: https://laurens-site.pages.dev/images/Sutherland_Lauren_Soprano_Resume.pdf
         new_tab: true
 ---
