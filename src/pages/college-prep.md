@@ -17,7 +17,12 @@ blocks:
     autoplay: true
     interval: 5
   - type: photo
-    image: /images/Package Info CVCP.jpg
+    image: /images/Package Info CVCP 1.jpg
+    caption: ''
+    focus: center
+    size: full
+  - type: photo
+    image: /images/Package Info CVCP 2.jpg
     caption: ''
     focus: center
     size: full
