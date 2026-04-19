@@ -5,6 +5,30 @@ permalink: /photo/
 blocks:
   - type: photo_album
     images:
+      - image: /images/20260407-DSC00540.jpg
+        focus: center
+        caption: ''
+      - image: /images/20260407-DSC00822.jpg
+        focus: center
+        caption: ''
+      - image: /images/20260407-DSC00826.jpg
+        focus: center
+        caption: ''
+      - image: /images/20260407-DSC00835.jpg
+        focus: center
+        caption: ''
+      - image: /images/20260407-DSC00873.jpg
+        focus: center
+        caption: ''
+      - image: /images/20260407-DSC00881.jpg
+        focus: center
+        caption: ''
+    heading: ''
+    columns: 3
+    title: '*The Telephone*, Fox Valley Opera'
+    credits: ''
+  - type: photo_album
+    images:
       - image: /images/IMG_6400.JPG
         caption: ''
       - image: /images/IMG_6404.JPG
