@@ -5,22 +5,22 @@ permalink: /photo/
 blocks:
   - type: photo_album
     images:
-      - image: /images/20260407-DSC00835.jpg
+      - image: /images/20260407-DSC00835-1.jpg
         focus: center
         caption: ''
-      - image: /images/20260407-DSC00822.jpg
+      - image: /images/20260407-DSC00822-1.jpg
         focus: center
         caption: ''
-      - image: /images/20260407-DSC00826.jpg
+      - image: /images/20260407-DSC00826-1.jpg
         focus: center
         caption: ''
-      - image: /images/20260407-DSC00898.jpg
+      - image: /images/20260407-DSC00898-1.jpg
         focus: center
         caption: ''
-      - image: /images/20260407-DSC00873.jpg
+      - image: /images/20260407-DSC00873-1.jpg
         focus: center
         caption: ''
-      - image: /images/20260407-DSC00881.jpg
+      - image: /images/20260407-DSC00881-1.jpg
         focus: center
         caption: ''
     heading: ''
