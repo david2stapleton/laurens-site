@@ -2,7 +2,7 @@
 <div class="event-item{% if event.image_side == 'right' %} event-image-right{% endif %}">
   {% if event.image %}
   <div class="event-image">
-    <img src="{{ event.image }}" alt="{{ event.title }}">
+    <img src="{{ event.image | cfImage(800) }}" alt="{{ event.title }}" loading="lazy" decoding="async">
   </div>
   {% endif %}
   <div class="event-details">

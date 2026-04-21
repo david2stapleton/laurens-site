@@ -9,6 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="{{ site.fonts.url | safe }}" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
+  {% for img in collections.all | collectOtherPageImages(page.url) %}
+    <link rel="prefetch" as="image" href="{{ img | cfImage(1000) }}">
+  {% endfor %}
   <style>
     :root {
       --bg: {{ site.design.background_color | default("#f2f2f2") }};

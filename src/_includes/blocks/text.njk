@@ -4,10 +4,10 @@
   <div class="text-image-figure">
     {% if block.images and block.images.length %}
       {% for img in block.images %}
-        <img src="{{ img }}" alt="">
+        <img src="{{ img | cfImage(800) }}" alt="" loading="lazy" decoding="async">
       {% endfor %}
     {% else %}
-      <img src="{{ block.image }}" alt="">
+      <img src="{{ block.image | cfImage(800) }}" alt="" loading="lazy" decoding="async">
     {% endif %}
   </div>
   <div class="text-image-body">

@@ -1,5 +1,6 @@
+{% if block.size == "small" %}{% set photoWidth = 800 %}{% elif block.size == "full" %}{% set photoWidth = 1600 %}{% else %}{% set photoWidth = 1200 %}{% endif %}
 <figure class="photo-figure photo-{{ block.size | default('medium') }}">
-  <img src="{{ block.image }}" alt="{{ block.caption | default('') }}" style="object-position: {{ block.focus | default('center') }}" loading="lazy">
+  <img src="{{ block.image | cfImage(photoWidth) }}" alt="{{ block.caption | default('') }}" loading="lazy" decoding="async" style="object-position: {{ block.focus | default('center') }}">
   {% if block.caption %}
     <figcaption style="text-align: {{ site.design.caption_align | default('center') }}">{{ block.caption | markdown | safe }}</figcaption>
   {% endif %}

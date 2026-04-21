@@ -8,10 +8,11 @@
   {% endif %}
 </div>
 {% endif %}
+{% if block.columns == 2 %}{% set gridWidth = 800 %}{% elif block.columns == 4 %}{% set gridWidth = 500 %}{% else %}{% set gridWidth = 600 %}{% endif %}
 <div class="photo-grid photo-grid-{{ block.columns | default(3) }}">
   {% for item in block.images %}
     <figure class="photo-grid-item">
-      <img src="{{ item.image }}" alt="{{ item.caption | default('') }}" style="object-position: {{ item.focus | default('center') }}">
+      <img src="{{ item.image | cfImage(gridWidth) }}" alt="{{ item.caption | default('') }}" loading="lazy" decoding="async" style="object-position: {{ item.focus | default('center') }}">
       {% if item.caption %}
         <figcaption style="text-align: {{ site.design.caption_align | default('center') }}">{{ item.caption | markdown | safe }}</figcaption>
       {% endif %}

@@ -38,6 +38,47 @@ module.exports = function (eleventyConfig) {
     return 'https://' + value;
   });
 
+  // Rewrite a site-relative image URL through Cloudflare Image Transformations.
+  // In dev (eleventy --serve), emit an absolute URL to the live origin so transforms
+  // actually work — any image already on production renders as its optimized version.
+  // Override the live origin with the CF_IMAGE_ORIGIN env var if needed.
+  const CF_DEV_ORIGIN = process.env.CF_IMAGE_ORIGIN || 'https://laurensutherlandsoprano.com';
+  eleventyConfig.addFilter('cfImage', (url, width) => {
+    if (!url || typeof url !== 'string') return url;
+    if (url.startsWith('http://') || url.startsWith('https://')) return url;
+    const normalized = url.replace(/^\//, '');
+    const encoded = normalized.split('/').map(encodeURIComponent).join('/');
+    const opts = [`width=${width || 1200}`, 'fit=scale-down', 'format=auto'];
+    const path = `/cdn-cgi/image/${opts.join(',')}/${encoded}`;
+    return process.env.ELEVENTY_RUN_MODE === 'serve' ? `${CF_DEV_ORIGIN}${path}` : path;
+  });
+
+  // Collect image URLs from every page in the collection EXCEPT the current one.
+  // Used to emit <link rel="prefetch" as="image"> hints so browsing feels snappy.
+  eleventyConfig.addFilter('collectOtherPageImages', (collection, currentUrl) => {
+    const urls = new Set();
+    const addFromBlock = block => {
+      if (block.image) urls.add(block.image);
+      if (Array.isArray(block.images)) {
+        for (const img of block.images) {
+          if (typeof img === 'string') urls.add(img);
+          else if (img && img.image) urls.add(img.image);
+        }
+      }
+      if (Array.isArray(block.events)) {
+        for (const ev of block.events) {
+          if (ev.image) urls.add(ev.image);
+        }
+      }
+    };
+    for (const item of collection) {
+      if (!item.data || item.url === currentUrl) continue;
+      if (!Array.isArray(item.data.blocks)) continue;
+      for (const block of item.data.blocks) addFromBlock(block);
+    }
+    return [...urls];
+  });
+
   // Don't process content files as pages (they're data sources only)
   eleventyConfig.ignores.add('src/_content/**');
 
