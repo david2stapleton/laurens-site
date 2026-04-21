@@ -5,7 +5,7 @@ permalink: /photo/
 blocks:
   - type: photo_album
     images:
-      - image: /images/20260407-DSC00540.jpg
+      - image: /images/20260407-DSC00835.jpg
         focus: center
         caption: ''
       - image: /images/20260407-DSC00822.jpg
@@ -14,7 +14,7 @@ blocks:
       - image: /images/20260407-DSC00826.jpg
         focus: center
         caption: ''
-      - image: /images/20260407-DSC00835.jpg
+      - image: /images/20260407-DSC00898.jpg
         focus: center
         caption: ''
       - image: /images/20260407-DSC00873.jpg
